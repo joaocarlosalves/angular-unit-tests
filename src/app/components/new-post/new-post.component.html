@@ -1,0 +1,21 @@
+
+<div>
+   <form>
+      <div class='input-line'>
+         <label>TITLE</label>
+         <input [(ngModel)]="title" name="title" (keyup)='validPost()' />
+      </div>
+
+      <div class='input-line'>
+         <label>AUTHOR</label>
+         <input [(ngModel)]="author" name="author" (keyup)='validPost()' />
+      </div>
+
+      <div class='input-line'>
+         <label>LINK</label>
+         <input [(ngModel)]="link" name="link" (keyup)='validPost()' />
+      </div>
+
+      <button class="default" [disabled]="!valid ? 'disabled' : ''" (click)='submitPost()'>POST</button>
+   </form>
+</div>
