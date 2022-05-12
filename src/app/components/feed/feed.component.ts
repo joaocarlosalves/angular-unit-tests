@@ -30,7 +30,7 @@ export class FeedComponent implements OnInit {
     this.postService.getPosts()
     .subscribe((posts: any) => {
       this.posts = posts
-      console.log(this.posts)
+      //console.log(this.posts)
     })
   }
 

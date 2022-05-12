@@ -3,42 +3,70 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NewPostComponent } from './new-post.component';
+import { PostService } from 'src/app/services/post.service';
 
 describe('NewPostComponent', () => {
   let component: NewPostComponent;
   let fixture: ComponentFixture<NewPostComponent>;
+  let postService: PostService
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientModule, HttpClientTestingModule, FormsModule],
-      declarations: [ NewPostComponent ]
+      declarations: [NewPostComponent],
+      providers: [PostService]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(NewPostComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    postService = TestBed.get(PostService)
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should validPost()', () => {
-    
+  it('should validPost() valid = false ', () => {
+    component.title = ''
+    component.author = ''
+    component.link = ''
+
+    component.validPost();
+
+    expect(component.valid).toBeFalse();
+    expect(component.valid).toEqual(false);
   });
 
+  it('should validPost() valid = true ', () => {
+    component.title = '1'
+    component.author = '2'
+    component.link = '3'
+
+    component.validPost();
+
+    expect(component.valid).toBeTrue();
+    expect(component.valid).toEqual(true);
+  });
+
+
   it('should submitPost()', () => {
-/*     let post = {
-      title: 'Title',
-      author: 'Author',
-      link: 'link'
+    let post = {
+      title: 'this.title',
+      author: 'this.author',
+      link: 'this.link',
+      date: '05/05/2022'
     }
 
-    component.post()
+    component.submitPost();
 
-    expect(component.post).toBeTruthy(); */
+    const postSpy = spyOn(postService, 'insertPost');
+
+    postSpy(post);
+
+    expect(postSpy).toHaveBeenCalledWith(post);
   });
 });

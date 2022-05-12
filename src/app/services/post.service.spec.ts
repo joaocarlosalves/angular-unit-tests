@@ -1,3 +1,4 @@
+import { Injectable } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { HttpClientModule } from '@angular/common/http';
@@ -8,7 +9,8 @@ describe('PostService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule, HttpClientTestingModule]
+      imports: [HttpClientModule, HttpClientTestingModule],
+      providers: [Injectable]
     });
     service = TestBed.inject(PostService);
   });
@@ -16,16 +18,16 @@ describe('PostService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-
-  it('should be retrievePosts()', () => {
-    expect(service).toBeTruthy();
-  });
-
-  it('should be insertPost()', () => {
-    expect(service).toBeTruthy();
-  });
-
-  it('should be getPosts()', () => {
-    expect(service).toBeTruthy();
-  });
+  /* 
+    it('should be retrievePosts()', () => {
+      expect(service).toBeTruthy();
+    });
+  
+    it('should be insertPost()', () => {
+      expect(service).toBeTruthy();
+    });
+  
+    it('should be getPosts()', () => {
+      expect(service).toBeTruthy();
+    }); */
 });
