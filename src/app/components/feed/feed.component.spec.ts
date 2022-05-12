@@ -1,9 +1,9 @@
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { HttpClientModule } from '@angular/common/http';
-import { FeedComponent } from './feed.component';
-import { Subscription, of } from 'rxjs';
+import { of } from 'rxjs';
 import { PostService } from 'src/app/services/post.service';
+import { FeedComponent } from './feed.component';
 
 const posts: any = [
   {
@@ -40,7 +40,6 @@ describe('FeedComponent', () => {
   let component: FeedComponent;
   let fixture: ComponentFixture<FeedComponent>;
   let postService: PostService;
-  let sub: Subscription;
   let postList = posts;
 
   beforeEach(async () => {
@@ -59,11 +58,9 @@ describe('FeedComponent', () => {
     postService = TestBed.get(PostService)
   });
 
-
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
 
   it('should test subscribe', fakeAsync(() => {
     const postSpy = spyOn(postService, 'getPosts').and.returnValue(of(postList))
@@ -77,23 +74,19 @@ describe('FeedComponent', () => {
     expect(subSpy).toHaveBeenCalled();
   }));
 
-
   it('should test getPosts()', fakeAsync(() => {
-    const postSpy = spyOn(postService, 'getPosts').and.returnValue(of(postList))
+    const postSpy = spyOn(postService, 'getPosts').and.returnValue(of(postList));
+
     component.ngOnInit();
-
-    tick();
-
-    expect(postSpy).toHaveBeenCalled();
-
-    tick();
 
     postService.getPosts().subscribe(posts => {
       component.posts = posts;
 
       fixture.detectChanges();
+
       expect(component.posts).toEqual(postList);
     });
-  }));
 
+    expect(postSpy).toHaveBeenCalled();
+  }));
 });

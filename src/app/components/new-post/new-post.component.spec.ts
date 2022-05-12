@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { NewPostComponent } from './new-post.component';
 import { PostService } from 'src/app/services/post.service';
+import { NewPostComponent } from './new-post.component';
 
 describe('NewPostComponent', () => {
   let component: NewPostComponent;
@@ -30,28 +30,25 @@ describe('NewPostComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should validPost() valid = false ', () => {
+  it('should test validPost() and check if valid === false ', () => {
     component.title = ''
     component.author = ''
     component.link = ''
 
     component.validPost();
 
-    expect(component.valid).toBeFalse();
     expect(component.valid).toEqual(false);
   });
 
-  it('should validPost() valid = true ', () => {
+  it('should test validPost() and check if valid === true ', () => {
     component.title = '1'
     component.author = '2'
     component.link = '3'
 
     component.validPost();
 
-    expect(component.valid).toBeTrue();
     expect(component.valid).toEqual(true);
   });
-
 
   it('should submitPost()', () => {
     let post = {
