@@ -8,46 +8,45 @@ import { NewPostComponent } from './new-post.component';
 describe('NewPostComponent', () => {
   let component: NewPostComponent;
   let fixture: ComponentFixture<NewPostComponent>;
-  let postService: PostService
+  let postService: PostService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientModule, HttpClientTestingModule, FormsModule],
       declarations: [NewPostComponent],
-      providers: [PostService]
-    })
-      .compileComponents();
+      providers: [PostService],
+    }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(NewPostComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    postService = TestBed.get(PostService)
+    postService = TestBed.get(PostService);
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should test validPost() and check if valid === false ', () => {
-    component.title = ''
-    component.author = ''
-    component.link = ''
-
-    component.validPost();
-
-    expect(component.valid).toEqual(false);
-  });
-
   it('should test validPost() and check if valid === true ', () => {
-    component.title = '1'
-    component.author = '2'
-    component.link = '3'
+    component.title = '1';
+    component.author = '2';
+    component.link = '3';
 
     component.validPost();
 
     expect(component.valid).toEqual(true);
+  });
+
+  it('should test validPost() and check if valid === false ', () => {
+    component.title = '';
+    component.author = '';
+    component.link = '';
+
+    component.validPost();
+
+    expect(component.valid).toEqual(false);
   });
 
   it('should submitPost()', () => {
@@ -55,8 +54,8 @@ describe('NewPostComponent', () => {
       title: 'this.title',
       author: 'this.author',
       link: 'this.link',
-      date: '05/05/2022'
-    }
+      date: '05/05/2022',
+    };
 
     component.submitPost();
 

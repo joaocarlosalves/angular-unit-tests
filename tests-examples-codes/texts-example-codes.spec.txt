@@ -1,0 +1,43 @@
+it('be able to retrieve posts from the API bia GET', fakeAsync(() => {
+  let spy = spyOn(postService._posts$, 'next');
+
+  httpClient.get(url).subscribe((postList: any) => {
+    expect(postList.length).toBe(4);
+    spy(postList);
+    expect(spy).toHaveBeenCalledWith(postList);
+    expect(postList).toEqual(posts);
+  });
+  const request = httpMock.expectOne('http://localhost:3000/posts');
+  expect(request.request.method).toBe('GET');
+  request.flush(posts);
+}));
+
+it('should test retrievePosts()', fakeAsync(() => {
+  postService.retrievePosts();
+
+  httpClient.get(url).subscribe((postsList: any) => {
+    postService._posts$.next(postsList);
+
+    expect(postService._posts$.next(postsList)).toHaveBeenCalled();
+  });
+}));
+
+it('should match request by matcher function 2', () => {
+  //postService.retrievePosts();
+  let spy = spyOn(postService._posts$, 'next');
+  httpClient.get(url).subscribe((postsList: any) => {
+    spy(postsList);
+    expect(spy).toHaveBeenCalledWith(postsList);
+    expect(postsList).toEqual(posts);
+  });
+
+  const testRequest = httpMock.expectOne((request) => request.url === url);
+
+  expect(testRequest.request.method).toBe('GET');
+
+  testRequest.flush(posts);
+});
+
+it('should be getPosts()', () => {
+  expect(service).toBeTruthy();
+});

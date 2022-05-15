@@ -62,7 +62,7 @@ describe('FeedComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should test subscribe', fakeAsync(() => {
+  it('should test getPosts() subscribe', fakeAsync(() => {
     const postSpy = spyOn(postService, 'getPosts').and.returnValue(of(postList))
     const subSpy = spyOn(postService.getPosts(), 'subscribe')
 

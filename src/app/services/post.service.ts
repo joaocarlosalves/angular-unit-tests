@@ -1,17 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject } from 'rxjs';
-import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  private _posts$ = new Subject<void>()
-  lastId: number;
-  url = 'http://localhost:3000/posts'
-
+  public _posts$ = new Subject<void>()
+  url: string = 'http://localhost:3000/posts'
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
@@ -21,13 +17,7 @@ export class PostService {
   retrievePosts() {
     this.httpClient
       .get(`${this.url}`)
-      .subscribe((posts: any) => {
-        if (posts.length !== undefined) {
-          this._posts$.next(posts)
-          this.lastId = posts.length + 1
-        }
-        else this._posts$.next()
-      })
+      .subscribe((posts: any) => this._posts$.next(posts))
   }
 
   getPosts() {
