@@ -7,7 +7,6 @@ import { PostService } from 'src/app/services/post.service';
   styleUrls: ['./new-post.component.scss']
 })
 export class NewPostComponent {
-
   title: string = '';
   author: string = '';
   link: string = '';
@@ -32,8 +31,7 @@ export class NewPostComponent {
       link: this.link,
       date: new Date().toLocaleDateString("en-US")
     }
-    
+
     this.postService.insertPost(this.post)
   }
-
 }

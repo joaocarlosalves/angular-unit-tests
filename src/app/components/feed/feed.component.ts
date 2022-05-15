@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PostService } from 'src/app/services/post.service';
 
@@ -7,7 +7,7 @@ import { PostService } from 'src/app/services/post.service';
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss']
 })
-export class FeedComponent implements OnInit {
+export class FeedComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   posts: any;
 
@@ -21,17 +21,14 @@ export class FeedComponent implements OnInit {
     this.subscription.unsubscribe();
   }
 
-  async init() {
-    await this.postService.retrievePosts()
-    await this.getPosts()
+  init() {
+    this.postService.retrievePosts()
+    this.getPosts()
   }
 
   getPosts() {
     this.postService.getPosts()
-    .subscribe((posts: any) => {
-      this.posts = posts
-      //console.log(this.posts)
-    })
+    .subscribe((posts: any) => this.posts = posts)
   }
 
 }

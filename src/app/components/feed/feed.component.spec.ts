@@ -1,7 +1,7 @@
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { HttpClientModule } from '@angular/common/http';
-import { of } from 'rxjs';
+import { of, Subscription } from 'rxjs';
 import { PostService } from 'src/app/services/post.service';
 import { FeedComponent } from './feed.component';
 
@@ -37,6 +37,7 @@ const posts: any = [
 ];
 
 describe('FeedComponent', () => {
+  let subscription: Subscription;
   let component: FeedComponent;
   let fixture: ComponentFixture<FeedComponent>;
   let postService: PostService;
@@ -60,6 +61,53 @@ describe('FeedComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should test ngOnInit called', () => {
+    let ngOnInit = spyOn(component, 'ngOnInit');
+
+    ngOnInit();
+    expect(ngOnInit).toHaveBeenCalled();
+  });
+
+  it('should test init called inside ngOnInit', () => {
+    let init = spyOn(component, 'init');
+
+    component.ngOnInit();
+
+    init();
+
+    expect(init).toHaveBeenCalled();
+  });
+
+  it('should test subscription inside ngOnDestroy called', fakeAsync(() => {
+    component.subscription = of().subscribe();
+
+    let unsubSpy = spyOn(component.subscription, 'unsubscribe');
+
+    component.ngOnDestroy();
+
+    expect(unsubSpy).toHaveBeenCalled();
+  }));
+
+  it('should test ngOnDestroy called', () => {
+    let ngOnDestroy = spyOn(component, 'ngOnDestroy');
+
+    ngOnDestroy();
+
+    expect(ngOnDestroy).toHaveBeenCalled();
+  });
+
+  it('should test init called', () => {
+    let spyNgOnInit = spyOn(component, 'ngOnInit');
+    let spyInit = spyOn(component, 'init');
+
+    spyNgOnInit();
+
+    spyInit();
+
+    expect(spyNgOnInit).toHaveBeenCalledBefore(spyInit);
+    expect(spyInit).toHaveBeenCalled();
   });
 
   it('should test getPosts() subscribe', fakeAsync(() => {

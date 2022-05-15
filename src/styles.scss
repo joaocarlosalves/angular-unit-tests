@@ -5,7 +5,6 @@
    border: 0;
    box-sizing: border-box;
    font-size: 100%;
-   font: inherit;
    vertical-align: baseline;
    outline: none;
 }
@@ -96,7 +95,7 @@ button {
    &.success {
       background-color: rgb(0, 136, 57);
    }
-   
+
    &[disabled] {
       background-color: #cbcbcb;
    }
