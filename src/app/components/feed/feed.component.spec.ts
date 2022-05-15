@@ -1,7 +1,7 @@
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { HttpClientModule } from '@angular/common/http';
-import { of, Subscription } from 'rxjs';
+import { of } from 'rxjs';
 import { PostService } from 'src/app/services/post.service';
 import { FeedComponent } from './feed.component';
 
@@ -37,7 +37,6 @@ const posts: any = [
 ];
 
 describe('FeedComponent', () => {
-  let subscription: Subscription;
   let component: FeedComponent;
   let fixture: ComponentFixture<FeedComponent>;
   let postService: PostService;
