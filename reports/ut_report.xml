@@ -1,30 +1,43 @@
 <testExecutions version="1">
-  <file path="src/app/services/post.service.spec.ts">
-    <testCase name="PostService description" duration="13"/>
-    <testCase name="PostService should postService be created" duration="3"/>
-    <testCase name="PostService should test insertPost(body)" duration="4"/>
-  </file>
-  <file path="src/app/components/feed/feed.component.spec.ts">
-    <testCase name="FeedComponent should test init called" duration="25"/>
-    <testCase name="FeedComponent should test ngOnDestroy called" duration="6"/>
-    <testCase name="FeedComponent should test getPosts()" duration="7"/>
-    <testCase name="FeedComponent should test getPosts() subscribe" duration="5"/>
-    <testCase name="FeedComponent should test subscription inside ngOnDestroy called" duration="3"/>
-    <testCase name="FeedComponent should test ngOnInit called" duration="5"/>
-    <testCase name="FeedComponent should create" duration="3"/>
-    <testCase name="FeedComponent should test init called inside ngOnInit" duration="3"/>
-  </file>
   <file path="src/app/pages/posts/posts.component.spec.ts">
-    <testCase name="PostsComponent should create" duration="6"/>
+    <testCase name="PostsComponent should create" duration="1"/>
   </file>
   <file path="src/app/components/new-post/new-post.component.spec.ts">
-    <testCase name="NewPostComponent should test validPost() and check if valid === true " duration="18"/>
-    <testCase name="NewPostComponent should test validPost() and check if valid === false " duration="7"/>
+    <testCase name="NewPostComponent should test validPost() and check if valid === false " duration="23"/>
+    <testCase name="NewPostComponent should submitPost()" duration="21"/>
     <testCase name="NewPostComponent should create" duration="6"/>
-    <testCase name="NewPostComponent should submitPost()" duration="17"/>
+    <testCase name="NewPostComponent should test validPost() and check if valid === true " duration="4"/>
+  </file>
+  <file path="src/app/services/store/store.service.spec.ts">
+    <testCase name="Store should GET item" duration="2"/>
+    <testCase name="Store create the store" duration="2"/>
+    <testCase name="Store should SET item" duration="1"/>
+  </file>
+  <file path="src/app/services/post.service.spec.ts">
+    <testCase name="PostService should postService be created" duration="2"/>
+    <testCase name="PostService should test insertPost(body)" duration="1"/>
+    <testCase name="PostService description" duration="1"/>
+  </file>
+  <file path="src/app/components/example/child/child.component.spec.ts">
+    <testCase name="ChildComponent should test ngOnInit" duration="5"/>
+    <testCase name="ChildComponent should test setMap" duration="2"/>
+    <testCase name="ChildComponent should create" duration="2"/>
   </file>
   <file path="src/app/app.component.spec.ts">
-    <testCase name="AppComponent should create the app" duration="6"/>
-    <testCase name="AppComponent should have as title 'unit-tests'" duration="3"/>
+    <testCase name="AppComponent should create the app" duration="1"/>
+  </file>
+  <file path="src/app/components/feed/feed.component.spec.ts">
+    <testCase name="FeedComponent should test subscription inside ngOnDestroy called" duration="5"/>
+    <testCase name="FeedComponent should test init called inside ngOnInit" duration="2"/>
+    <testCase name="FeedComponent should test ngOnInit called" duration="4"/>
+    <testCase name="FeedComponent should create" duration="3"/>
+    <testCase name="FeedComponent should test init called" duration="4"/>
+    <testCase name="FeedComponent should test getPosts() subscribe" duration="4"/>
+    <testCase name="FeedComponent should test getPosts()" duration="4"/>
+    <testCase name="FeedComponent should test ngOnDestroy called" duration="4"/>
+  </file>
+  <file path="src/app/components/example/example.component.spec.ts">
+    <testCase name="ExampleComponent should test setMap" duration="15"/>
+    <testCase name="ExampleComponent should create" duration="4"/>
   </file>
 </testExecutions>

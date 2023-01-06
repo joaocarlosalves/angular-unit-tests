@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-posts',
-  templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.scss']
+  template: `
+    <new-post></new-post>
+    <feed></feed>
+  `
 })
 export class PostsComponent {}

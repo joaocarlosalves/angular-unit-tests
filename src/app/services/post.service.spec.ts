@@ -1,18 +1,18 @@
-import { Injectable } from '@angular/core';
 import { fakeAsync, flush, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { PostService } from './post.service';
 import { of } from 'rxjs';
 
-let body: any = {
+const
+body: any = {
   title: 'post.title',
   author: 'post.author',
   link: 'post.link',
-  date: 'post.date',
-};
+  date: 'post.date'
+},
 
-const posts: any = [
+posts: any = [
   {
     title:
       'The sun’s searing radiation led to the shuffling of the solar system’s planets',
@@ -44,51 +44,39 @@ const posts: any = [
   },
 ];
 
-let httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-};
-
 describe('PostService', () => {
-  let postService: PostService;
-  let httpMock: HttpTestingController;
-  let httpClient: HttpClient;
+  let postService: PostService,
+      httpMock: HttpTestingController,
+      http: HttpClient;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule, HttpClientTestingModule],
-      providers: [Injectable, PostService],
+      imports: [HttpClientTestingModule],
+      providers: [PostService],
     });
 
-    httpClient = TestBed.inject(HttpClient);
+    http = TestBed.inject(HttpClient);
     httpMock = TestBed.inject(HttpTestingController);
     postService = TestBed.inject(PostService);
   });
 
-  it('should postService be created', () => {
-    expect(postService).toBeTruthy();
-  });
+  it('should postService be created', () => expect(postService).toBeTruthy());
 
   it('should test insertPost(body)', async () => {
     postService.insertPost(body);
-
-    const req = await httpMock.expectOne('http://localhost:3000/posts');
-
+    let req = await httpMock.expectOne('http://localhost:3000/posts');
     expect(req.request.method).toEqual('POST');
-
     req.flush(body);
   });
 
   it('description', fakeAsync(() => {
-    let postSpy = spyOn(httpClient, 'get').and.returnValue(of(posts));
-    let next = spyOn(postService._posts$, 'next');
-
+    let postSpy = spyOn(http, 'get').and.returnValue(of(posts)),
+        next = spyOn(postService.posts$, 'next');
     postService.retrievePosts();
-
     postSpy(posts).subscribe(() => {
       next(posts);
       expect(next).toHaveBeenCalledWith(posts);
     });
-
     flush();
   }));
 });

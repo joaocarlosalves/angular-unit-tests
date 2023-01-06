@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 import { NewPostComponent } from './components/new-post/new-post.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { PostsComponent } from './pages/posts/posts.component';
-
+import { Store } from './services/store/store.service';
+import { ExampleModule } from './components/example/example.module';
 
 @NgModule({
   declarations: [
@@ -20,9 +21,10 @@ import { PostsComponent } from './pages/posts/posts.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ExampleModule
   ],
-  providers: [],
+  providers: [Store],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,37 +2,25 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class PostService {
-  public _posts$ = new Subject<void>()
-  url: string = 'http://localhost:3000/posts'
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  }
+  posts$ = new Subject<void>();
+  opt = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  retrievePosts() {
-    this.httpClient
-      .get(`${this.url}`)
-      .subscribe((posts: any) => this._posts$.next(posts))
-  }
+  retrievePosts() { this.http.get('http://localhost:3000/posts').subscribe((p: any) => this.posts$.next(p)) }
 
-  getPosts() {
-    return this._posts$.asObservable()
-  }
+  getPosts() { return this.posts$.asObservable() }
 
   insertPost(post: any) {
-    let body: any = {
+    let body = {
       title: post.title,
       author: post.author,
       link: post.link,
       date: post.date
-    }
+    };
 
-    this.httpClient.post(this.url, body, this.httpOptions)
-      .subscribe(() => this.retrievePosts())
+    this.http.post('http://localhost:3000/posts', body, this.opt).subscribe(() => this.retrievePosts());
   }
 }
