@@ -9,13 +9,15 @@ import { FeedComponent } from './components/feed/feed.component';
 import { PostsComponent } from './pages/posts/posts.component';
 import { Store } from './services/store/store.service';
 import { ExampleModule } from './components/example/example.module';
+import { MapFilterComponent } from './components/map-filter/map-filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewPostComponent,
     FeedComponent,
-    PostsComponent
+    PostsComponent,
+    MapFilterComponent
   ],
   imports: [
     BrowserModule,

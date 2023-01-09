@@ -1,10 +1,10 @@
 import { of } from 'rxjs';
 import { Store } from 'src/app/services/store/store.service';
 
-import { ChildComponent } from './child.component';
+import { ChildTwoComponent } from './child-two.component';
 
-describe('ChildComponent', () => {
-  let component: ChildComponent,
+describe('ChildTwoComponent', () => {
+  let component: ChildTwoComponent,
       payload: any = [
         { id: 1, text: 'payload: 1' },
         { id: 2, text: 'payload: 2' },
@@ -16,7 +16,7 @@ describe('ChildComponent', () => {
   beforeEach(() => {
     const storeSpy = jasmine.createSpyObj<Store>(['get', 'set']);
     storeSpy.get.and.returnValue(of(payload));
-    component = new ChildComponent(storeSpy);
+    component = new ChildTwoComponent(storeSpy);
     component.ngOnInit();
   });
 

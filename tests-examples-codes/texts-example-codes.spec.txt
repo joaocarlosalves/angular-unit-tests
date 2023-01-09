@@ -1,4 +1,4 @@
-it('be able to retrieve posts from the API bia GET', fakeAsync(() => {
+it('be able to retrieve posts from the API via GET', fakeAsync(() => {
   let spy = spyOn(postService._posts$, 'next');
 
   httpClient.get(url).subscribe((postList: any) => {
@@ -12,6 +12,7 @@ it('be able to retrieve posts from the API bia GET', fakeAsync(() => {
   request.flush(posts);
 }));
 
+
 it('should test retrievePosts()', fakeAsync(() => {
   postService.retrievePosts();
 
@@ -21,6 +22,7 @@ it('should test retrievePosts()', fakeAsync(() => {
     expect(postService._posts$.next(postsList)).toHaveBeenCalled();
   });
 }));
+
 
 it('should match request by matcher function 2', () => {
   //postService.retrievePosts();
@@ -38,6 +40,159 @@ it('should match request by matcher function 2', () => {
   testRequest.flush(posts);
 });
 
-it('should be getPosts()', () => {
-  expect(service).toBeTruthy();
+
+it('should test subscription inside ngOnDestroy called', fakeAsync(() => {
+  component.subscription = of().subscribe();
+  let spyunsub = spyOn(component.subscription, 'unsubscribe');
+  component.ngOnDestroy();
+  expect(spyunsub).toHaveBeenCalled();
+}));
+
+
+it('should test ngOnDestroy called', () => {
+  let spyNgOnDestroy = spyOn(component, 'ngOnDestroy');
+  spyNgOnDestroy();
+  expect(spyNgOnDestroy).toHaveBeenCalled();
+});
+
+
+it('should test init called', () => {
+  let spyNgOnInit = spyOn(component, 'ngOnInit'),
+      spyInit = spyOn(component, 'init');
+  spyNgOnInit();
+  spyInit();
+  expect(spyNgOnInit).toHaveBeenCalledBefore(spyInit);
+  expect(spyInit).toHaveBeenCalled();
+});
+
+
+it('should test getPosts() subscribe', fakeAsync(() => {
+  let postSpy = spyOn(postService, 'getPosts').and.returnValue(of(posts)),
+      subSpy = spyOn(postService.getPosts(), 'subscribe');
+  component.ngOnInit();
+  tick();
+  expect(postSpy).toHaveBeenCalledBefore(subSpy);
+  expect(subSpy).toHaveBeenCalled();
+}));
+
+
+it('should test ngOnInit called', () => {
+  let ngOnInit = spyOn(component, 'ngOnInit');
+  ngOnInit();
+  expect(ngOnInit).toHaveBeenCalled();
+});
+
+
+
+it('should test searchCountry()',  async () => {
+  component.ngOnInit();
+
+  let spyGetCountry = spyOn(component, 'getCountry');
+
+  spyGetCountry('braz');
+
+  setTimeout(() => {
+    spyGetCountry('braz');
+    expect(spyGetCountry).toHaveBeenCalledWith('braz');
+    expect(component.getCountry).toHaveBeenCalledWith('braz');
+  }, 500);
+
+});
+
+
+it('should test searchCountry()',  async () => {
+  component.ngOnInit();
+
+  let spyGetCountry = spyOn(component, 'getCountry');
+
+  spyGetCountry('');
+
+  setTimeout(() => {
+    component.selectedCountry = [];
+    expect(spyGetCountry).toHaveBeenCalledWith('');
+    expect(component.selectedCountry).toEqual([]);
+  }, 100);
+});
+
+
+it('should test ngOnInit', () => {
+  let spyNgOnInit = spyOn(component, 'ngOnInit');
+  spyNgOnInit();
+  expect(spyNgOnInit).toHaveBeenCalled();
+  component.blee$ = of(store.store.get('payload')).subscribe((b: any) => component.blee = b);
+  expect(component.blee).toEqual(payload);
+});
+
+
+describe('ExampleComponent', () => {
+  let component: ExampleComponent,
+      fixture: ComponentFixture<ExampleComponent>,
+      store: Store;
+
+  beforeEach(async () => {
+    fixture = TestBed.createComponent(ExampleComponent);
+    store = TestBed.inject(Store);
+    component = fixture.componentInstance;
+  });
+
+  it('should create', () => expect(component).toBeTruthy());
+
+  it('should test setMap', () => {
+    component.list = [
+      { id: 1, text: 'example: 1' },
+      { id: 2, text: 'example: 2' },
+      { id: 3, text: 'example: 3' },
+      { id: 4, text: 'example: 4' },
+      { id: 5, text: 'example: 5' }
+    ];
+    component.setMap();
+    component.list.push({ id: component.list.length + 1, text: `example: ${ component.list.length + 1 }` });
+    store.store.set('example', component.list);
+    expect(component.list).toEqual(component.list);
+  });
+});
+
+
+describe('ChildComponent', () => {
+  let component: ChildComponent,
+      fixture: ComponentFixture<ChildComponent>,
+      store: Store,
+      payload: any = [
+        { id: 1, text: 'payload: 1' },
+        { id: 2, text: 'payload: 2' },
+        { id: 3, text: 'payload: 3' },
+        { id: 4, text: 'payload: 4' },
+        { id: 5, text: 'payload: 5' }
+      ];
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ChildComponent],
+      providers: [Store]
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(ChildComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    store = TestBed.inject(Store);
+    store.store.set('payload', payload);
+  });
+
+  it('should create', () => expect(component).toBeTruthy());
+
+  it('should test ngOnInit', () => {
+    let spyNgOnInit = spyOn(component, 'ngOnInit');
+    spyNgOnInit();
+    expect(spyNgOnInit).toHaveBeenCalled();
+    component.blee$ = of(store.store.get('payload')).subscribe((b: any) => component.blee = b);
+    expect(component.blee).toEqual(payload);
+  });
+
+  it('should test setMap', () => {
+    component.blee = payload;
+    component.setMap();
+    component.blee.push({ id: component.blee.length + 1, text: `payload: ${ component.blee.length + 1 }` });
+    store.store.set('blee', component.blee);
+    expect(component.blee).toEqual(component.blee);
+  });
 });

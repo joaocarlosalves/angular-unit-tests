@@ -22,14 +22,10 @@ export class FeedComponent implements OnInit, OnDestroy {
 
   constructor(private postService: PostService) { }
 
-  ngOnInit() { this.init() }
-
-  ngOnDestroy() { this.subscription.unsubscribe() }
-
-  init() {
+  ngOnInit() {
     this.postService.retrievePosts();
-    this.getPosts();
+    this.subscription = this.postService.getPosts().subscribe((p: any) => this.posts = p);
   }
 
-  getPosts() { this.postService.getPosts().subscribe((posts: any) => this.posts = posts) }
+  ngOnDestroy() { this.subscription.unsubscribe() }
 }

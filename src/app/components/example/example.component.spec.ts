@@ -1,31 +1,29 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ExampleComponent } from './example.component';
+import { of } from 'rxjs';
 import { Store } from 'src/app/services/store/store.service';
 
 describe('ExampleComponent', () => {
   let component: ExampleComponent,
-      fixture: ComponentFixture<ExampleComponent>,
-      store: Store;
+      payload: any = [
+        { id: 1, text: 'payload: 1' },
+        { id: 2, text: 'payload: 2' },
+        { id: 3, text: 'payload: 3' },
+        { id: 4, text: 'payload: 4' },
+        { id: 5, text: 'payload: 5' }
+      ];
 
-  beforeEach(async () => {
-    fixture = TestBed.createComponent(ExampleComponent);
-    store = TestBed.inject(Store);
-    component = fixture.componentInstance;
+  beforeEach(() => {
+    const storeSpy = jasmine.createSpyObj<Store>(['get', 'set']);
+    storeSpy.get.and.returnValue(of(payload));
+    component = new ExampleComponent(storeSpy);
   });
 
   it('should create', () => expect(component).toBeTruthy());
 
   it('should test setMap', () => {
-    component.list = [
-      { id: 1, text: 'example: 1' },
-      { id: 2, text: 'example: 2' },
-      { id: 3, text: 'example: 3' },
-      { id: 4, text: 'example: 4' },
-      { id: 5, text: 'example: 5' }
-    ];
+    component.list = payload;
     component.setMap();
-    component.list.push({ id: component.list.length + 1, text: `example: ${ component.list.length + 1 }` });
-    store.store.set('example', component.list);
+    component.list.push({ id: component.list.length + 1, text: `payload: ${ component.list.length + 1 }` });
     expect(component.list).toEqual(component.list);
   });
 });
