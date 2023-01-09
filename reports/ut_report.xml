@@ -1,69 +1,72 @@
 <testExecutions version="1">
+  <file path="src/app/services/store/store.service.spec.ts">
+    <testCase name="Store create the store" duration="5"/>
+    <testCase name="Store should SET item" duration="3"/>
+    <testCase name="Store should GET item" duration="2"/>
+    <testCase name="Store should ADD item" duration="2"/>
+  </file>
+  <file path="src/app/services/countries.service.spec.ts">
+    <testCase name="CountriesService should test insertPost(body)" duration="3"/>
+    <testCase name="CountriesService should test getCountriesArray" duration="3"/>
+    <testCase name="CountriesService should test subscription on ngOnInit" duration="2"/>
+    <testCase name="CountriesService should be created" duration="2"/>
+    <testCase name="CountriesService should test getCountry" duration="2"/>
+  </file>
+  <file path="src/app/services/post.service.spec.ts">
+    <testCase name="PostService description" duration="3"/>
+    <testCase name="PostService should postService be created" duration="1"/>
+    <testCase name="PostService should test insertPost(body)" duration="2"/>
+  </file>
+  <file path="src/app/components/map-filter/map-filter.component.spec.ts">
+    <testCase name="ChildComponent should set selectedCountry to an empty array if the search term is more than two characters" duration="13"/>
+    <testCase name="ChildComponent should test ngOnInit" duration="3"/>
+    <testCase name="ChildComponent should set selectedCountry to an empty array if the search term is less than two characters" duration="3"/>
+    <testCase name="ChildComponent should test getCountry()" duration="4"/>
+    <testCase name="ChildComponent should mount component" duration="3"/>
+    <testCase name="ChildComponent should test subscription on ngOnInit" duration="3"/>
+  </file>
+  <file path="src/app/components/new-post/new-post.component.spec.ts">
+    <testCase name="NewPostComponent should test validPost() and check if valid = true " duration="8"/>
+    <testCase name="NewPostComponent should submitPost()" duration="2"/>
+    <testCase name="NewPostComponent should test validPost() and check if valid = false " duration="2"/>
+    <testCase name="NewPostComponent should create" duration="1"/>
+  </file>
   <file path="src/app/components/example/example.component.spec.ts">
     <testCase name="ExampleComponent should create" duration="1"/>
     <testCase name="ExampleComponent should test setMap" duration="1"/>
   </file>
-  <file path="src/app/pages/posts/posts.component.spec.ts">
-    <testCase name="PostsComponent should create" duration="1"/>
-  </file>
-  <file path="src/app/components/feed/feed.component.spec.ts">
-    <testCase name="FeedComponent should test ngOnInit" duration="13"/>
-    <testCase name="FeedComponent should create" duration="3"/>
-    <testCase name="FeedComponent should test getPosts()" duration="3"/>
-  </file>
-  <file path="src/app/services/countries.service.spec.ts">
-    <testCase name="CountriesService should test getCountriesArray" duration="3"/>
-    <testCase name="CountriesService should test getCountry" duration="2"/>
-    <testCase name="CountriesService should test subscription on ngOnInit" duration="1"/>
-    <testCase name="CountriesService should test insertPost(body)" duration="1"/>
-    <testCase name="CountriesService should be created" duration="1"/>
-  </file>
-  <file path="src/app/services/post.service.spec.ts">
-    <testCase name="PostService description" duration="2"/>
-    <testCase name="PostService should test insertPost(body)" duration="1"/>
-    <testCase name="PostService should postService be created" duration="3"/>
-  </file>
-  <file path="src/app/components/new-post/new-post.component.spec.ts">
-    <testCase name="NewPostComponent should submitPost()" duration="6"/>
-    <testCase name="NewPostComponent should create" duration="1"/>
-    <testCase name="NewPostComponent should test validPost() and check if valid = true " duration="1"/>
-    <testCase name="NewPostComponent should test validPost() and check if valid = false " duration="2"/>
-  </file>
-  <file path="src/app/app.component.spec.ts">
-    <testCase name="AppComponent should create the app" duration="1"/>
+  <file path="src/app/components/search-country/search-country.component.spec.ts">
+    <testCase name="SearchCountryComponent should set selectedCountry to an empty array if the search term is more than two characters" duration="2"/>
+    <testCase name="SearchCountryComponent should set selectedCountry to an empty array if the search term is less than two characters" duration="2"/>
+    <testCase name="SearchCountryComponent should test ngOnInit" duration="2"/>
+    <testCase name="SearchCountryComponent should call getCountries method of countriesService" duration="2"/>
+    <testCase name="SearchCountryComponent should create" duration="1"/>
+    <testCase name="SearchCountryComponent should test insertPost(body)" duration="1"/>
   </file>
   <file path="src/app/components/push-pop/push-pop.component.spec.ts">
     <testCase name="PushPopComponent should test pop()" duration="1"/>
-    <testCase name="PushPopComponent should create" duration="1"/>
     <testCase name="PushPopComponent should test addToList()" duration="1"/>
-    <testCase name="PushPopComponent should test addToListInput()" duration="1"/>
     <testCase name="PushPopComponent should test removeFromList()" duration="1"/>
+    <testCase name="PushPopComponent should create" duration="1"/>
+    <testCase name="PushPopComponent should test addToListInput()" duration="1"/>
   </file>
-  <file path="src/app/services/store/store.service.spec.ts">
-    <testCase name="Store should SET item" duration="1"/>
-    <testCase name="Store should GET item" duration="1"/>
-    <testCase name="Store create the store" duration="1"/>
-  </file>
-  <file path="src/app/components/map-filter/map-filter.component.spec.ts">
-    <testCase name="ChildComponent should test subscription on ngOnInit" duration="5"/>
-    <testCase name="ChildComponent should test getCountry()" duration="2"/>
-    <testCase name="ChildComponent should set selectedCountry to an empty array if the search term is less than two characters" duration="2"/>
-    <testCase name="ChildComponent should set selectedCountry to an empty array if the search term is more than two characters" duration="3"/>
-    <testCase name="ChildComponent should mount component" duration="3"/>
-    <testCase name="ChildComponent should test ngOnInit" duration="2"/>
-    <testCase name="ChildComponent should create" duration="1"/>
-    <testCase name="ChildComponent should test setMap" duration="1"/>
-  </file>
-  <file path="src/app/components/search-country/search-country.component.spec.ts">
-    <testCase name="SearchCountryComponent should set selectedCountry to an empty array if the search term is less than two characters" duration="2"/>
-    <testCase name="SearchCountryComponent should test ngOnInit" duration="1"/>
-    <testCase name="SearchCountryComponent should test insertPost(body)" duration="2"/>
-    <testCase name="SearchCountryComponent should call getCountries method of countriesService" duration="1"/>
-    <testCase name="SearchCountryComponent should create" duration="1"/>
-    <testCase name="SearchCountryComponent should set selectedCountry to an empty array if the search term is more than two characters" duration="2"/>
+  <file path="src/app/components/feed/feed.component.spec.ts">
+    <testCase name="FeedComponent should test getPosts()" duration="5"/>
+    <testCase name="FeedComponent should test ngOnInit" duration="3"/>
+    <testCase name="FeedComponent should create" duration="3"/>
   </file>
   <file path="src/app/components/example/child-two/child-two.component.spec.ts">
     <testCase name="ChildTwoComponent should create" duration="1"/>
     <testCase name="ChildTwoComponent should test setMap" duration="1"/>
+  </file>
+  <file path="src/app/components/posts/posts.component.spec.ts">
+    <testCase name="PostsComponent should create" duration="1"/>
+  </file>
+  <file path="src/app/components/map-filter/map-filter.component.spec.ts">
+    <testCase name="ChildComponent should test setMap" duration="1"/>
+    <testCase name="ChildComponent should create" duration="1"/>
+  </file>
+  <file path="src/app/app.component.spec.ts">
+    <testCase name="AppComponent should create the app" duration="1"/>
   </file>
 </testExecutions>

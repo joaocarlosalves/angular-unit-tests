@@ -1,4 +1,3 @@
-import { SearchCountryComponent } from './components/search-country/search-country.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -6,29 +5,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Store } from './services/store/store.service';
-import { ExampleModule } from './components/example/example.module';
-import { NewPostComponent } from './components/new-post/new-post.component';
-import { FeedComponent } from './components/feed/feed.component';
-import { PostsComponent } from './pages/posts/posts.component';
-import { MapFilterComponent } from './components/map-filter/map-filter.component';
-import { PushPopComponent } from './components/push-pop/push-pop.component';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NewPostComponent,
-    FeedComponent,
-    PostsComponent,
-    MapFilterComponent,
-    PushPopComponent,
-    SearchCountryComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ExampleModule
+    ComponentsModule
   ],
   providers: [Store],
   bootstrap: [AppComponent]
