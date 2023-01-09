@@ -38,7 +38,10 @@ describe('ChildComponent', () => {
 
   it('should test subscription on ngOnInit', () => {
     of(COUNTRIES).subscribe((c: any) => serv._countries$.next(c));
-    component.subscription = serv.getCountries().subscribe((c: any) => { component.countries = c });
+    component.subscription = serv.getCountries().subscribe((c: any) => {
+      serv.countries = c;
+      expect(serv.countries).toEqual(c);
+    });
   });
 
 

@@ -10,6 +10,7 @@ import { PostsComponent } from './pages/posts/posts.component';
 import { Store } from './services/store/store.service';
 import { ExampleModule } from './components/example/example.module';
 import { MapFilterComponent } from './components/map-filter/map-filter.component';
+import { PushPopComponent } from './components/push-pop/push-pop.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MapFilterComponent } from './components/map-filter/map-filter.component
     NewPostComponent,
     FeedComponent,
     PostsComponent,
-    MapFilterComponent
+    MapFilterComponent,
+    PushPopComponent
   ],
   imports: [
     BrowserModule,

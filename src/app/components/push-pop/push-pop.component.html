@@ -1,0 +1,20 @@
+<div class="full flex column gap-10px mt30px">
+  <label>Add Item</label>
+
+  <div class="flex center gap-10px">
+    <input class="p-input" type='text' #inp (keyup)="addToListInput($event)" />
+    <button *ngIf="inp.value.length > 0" class="p-button success" style="height: 35px" (click)="addToList(inp.value); inp.focus()">ADD</button>
+    <button *ngIf="list.length > 0" class="p-button regular" style="height: 35px" (click)="pop(); inp.focus()">POP</button>
+  </div>
+
+  <div class="full flex-wrap gap-30px overflow-auto list-container" *ngIf="list.length > 0">
+    <span *ngFor="let item of list; let i = index" class="list-item" (click)="removeFromList(i)">{{ item }}</span>
+  </div>
+
+  <div class='full mt20px'>
+    <span class="full flex-wrap gap-10px center">
+      <b>Used:</b>
+      <span *ngFor="let tag of tags.flags" class='tag'>{{ tag }}</span>
+    </span>
+  </div>
+</div>
