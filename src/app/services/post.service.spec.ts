@@ -3,46 +3,14 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { HttpClient } from '@angular/common/http';
 import { PostService } from './post.service';
 import { of } from 'rxjs';
+import { POSTS } from 'src/app/mocks/posts.mock';
 
-const
-body: any = {
+const body: any = {
   title: 'post.title',
   author: 'post.author',
   link: 'post.link',
   date: 'post.date'
-},
-
-posts: any = [
-  {
-    title:
-      'The sun’s searing radiation led to the shuffling of the solar system’s planets',
-    link: 'https://www.sciencenews.org/article/sun-radiation-solar-system-planet-orbit-astronomy',
-    author: 'Science News',
-    date: '05/10/2022',
-    id: 1,
-  },
-  {
-    title: 'Should Earthlings blast out our location to the cosmos?',
-    link: 'https://astronomy.com/news/2022/05/should-earthlings-blast-out-our-location-to-the-cosmos',
-    author: 'Astronomy',
-    date: '05/10/2022',
-    id: 2,
-  },
-  {
-    title: 'Valneva COVID-19 vaccine: What do we know about it?',
-    link: 'https://www.medicalnewstoday.com/articles/valneva-covid-19-vaccine-what-do-we-know-about-it',
-    author: 'Medical News Today',
-    date: '05/10/2022',
-    id: 3,
-  },
-  {
-    title: 'Clearpath Announces TurtleBot 4',
-    author: 'IEEE Spectrum',
-    link: 'https://spectrum.ieee.org/turtlebot-4',
-    date: '5/10/2022',
-    id: 4,
-  },
-];
+};
 
 describe('PostService', () => {
   let postService: PostService,
@@ -70,12 +38,12 @@ describe('PostService', () => {
   });
 
   it('description', fakeAsync(() => {
-    let postSpy = spyOn(http, 'get').and.returnValue(of(posts)),
+    let postSpy = spyOn(http, 'get').and.returnValue(of(POSTS)),
         next = spyOn(postService.posts$, 'next');
     postService.retrievePosts();
-    postSpy(posts).subscribe(() => {
-      next(posts);
-      expect(next).toHaveBeenCalledWith(posts);
+    postSpy(POSTS).subscribe(() => {
+      next(POSTS);
+      expect(next).toHaveBeenCalledWith(POSTS);
     });
     flush();
   }));

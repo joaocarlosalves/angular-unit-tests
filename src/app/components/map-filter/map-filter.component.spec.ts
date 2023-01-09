@@ -3,7 +3,7 @@ import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testin
 import { of, Subscription } from 'rxjs';
 import { CountriesService } from 'src/app/services/countries.service';
 import { MapFilterComponent } from './map-filter.component';
-import { COUNTRIES } from 'src/app/mocks/countries.mock'
+import { COUNTRIES } from 'src/app/mocks/countries.mock';
 
 describe('ChildComponent', () => {
   let component: MapFilterComponent,
@@ -29,13 +29,20 @@ describe('ChildComponent', () => {
 
   it('should mount component', () => expect(component).toBeTruthy());
 
-  it('should test ngOnInit',  () => {
+  it('should test ngOnInit', () => {
     let spyNgOnInit = spyOn(component, 'ngOnInit');
     spyNgOnInit();
     expect(spyNgOnInit).toHaveBeenCalled();
   });
 
-  it('should test getCountry()',  fakeAsync(async () => {
+
+  it('should test subscription on ngOnInit', () => {
+    of(COUNTRIES).subscribe((c: any) => serv._countries$.next(c));
+    component.subscription = serv.getCountries().subscribe((c: any) => { component.countries = c });
+  });
+
+
+  it('should test getCountry()', fakeAsync(async () => {
     of(COUNTRIES).subscribe((c: any) => component.countries = c);
     let countries: any[] = [], spyGetCountry = spyOn(component, 'getCountry');
 
@@ -52,8 +59,9 @@ describe('ChildComponent', () => {
 
     expect(spyGetCountry).toHaveBeenCalledWith('braz');
     expect(component.getCountry).toHaveBeenCalledWith('braz');
-    expect(component.selectedCountry).toEqual([{ "country": "Brazil", "id": "BR" }])
+    expect(component.selectedCountry).toEqual([{ "country": "Brazil", "id": "BR" }]);
   }));
+
 
   it('should set selectedCountry to an empty array if the search term is less than two characters',
   fakeAsync(async () => {
@@ -62,6 +70,7 @@ describe('ChildComponent', () => {
     component.selectedCountry = [];
     expect(component.selectedCountry).toEqual([]);
   }));
+
 
   it('should set selectedCountry to an empty array if the search term is more than two characters',
   fakeAsync(async () => {
@@ -72,15 +81,15 @@ describe('ChildComponent', () => {
 
     let spyGetCountry = spyOn(component, 'getCountry');
 
-    of(spyGetCountry('braz')).subscribe((c: any) => component.countries = c);
+    of(spyGetCountry('braz')).subscribe((c: any) => {
+      component.countries = c;
+      expect(component.countries).toEqual(c);
+    });
 
     component.selectedCountry = [{ "country": "Brazil", "id": "BR" }];
 
     expect(spyGetCountry).toHaveBeenCalledWith('braz');
     expect(component.getCountry).toHaveBeenCalledWith('braz');
-    expect(component.selectedCountry).toEqual([{ "country": "Brazil", "id": "BR" }])
+    expect(component.selectedCountry).toEqual([{ "country": "Brazil", "id": "BR" }]);
   }));
-
 });
-
-
