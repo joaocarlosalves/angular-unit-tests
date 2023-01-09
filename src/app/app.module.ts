@@ -1,3 +1,4 @@
+import { SearchCountryComponent } from './components/search-country/search-country.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -19,7 +20,8 @@ import { PushPopComponent } from './components/push-pop/push-pop.component';
     FeedComponent,
     PostsComponent,
     MapFilterComponent,
-    PushPopComponent
+    PushPopComponent,
+    SearchCountryComponent
   ],
   imports: [
     BrowserModule,
