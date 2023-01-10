@@ -1,6 +1,5 @@
 import { of } from 'rxjs';
 import { Store } from 'src/app/services/store/store.service';
-
 import { ChildTwoComponent } from './child-two.component';
 
 describe('ChildTwoComponent', () => {

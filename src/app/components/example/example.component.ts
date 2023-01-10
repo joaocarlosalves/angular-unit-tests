@@ -3,7 +3,7 @@ import { Store } from 'src/app/services/store/store.service';
 
 @Component({
   selector: 'example',
-  templateUrl: './example.component.html'
+  template: ''
 })
 export class ExampleComponent {
   list: any[] = [
@@ -13,7 +13,6 @@ export class ExampleComponent {
     { id: 4, text: 'example: 4' },
     { id: 5, text: 'example: 5' }
   ];
-
   opened = false;
 
   constructor(public store: Store) { this.store.set('example', this.list) }

@@ -1,7 +1,7 @@
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of } from 'rxjs';
-import { PostService } from 'src/app/services/post.service';
+import { PostService } from 'src/app/services/post/post.service';
 import { FeedComponent } from './feed.component';
 import { POSTS } from 'src/app/mocks/posts.mock'
 
@@ -34,7 +34,7 @@ describe('FeedComponent', () => {
   it('should test getPosts()', fakeAsync(() => {
     let spyPosts = spyOn(postService, 'getPosts').and.returnValue(of(POSTS));
     component.ngOnInit();
-    postService.getPosts().subscribe(p => expect(p).toEqual(POSTS));
+    postService.getPosts().subscribe((p: any) => expect(p).toEqual(POSTS));
     expect(component.posts).toEqual(POSTS);
     expect(spyPosts).toHaveBeenCalled();
   }));

@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { FormsModule } from '@angular/forms';
-import { PostService } from 'src/app/services/post.service';
+import { PostService } from 'src/app/services/post/post.service';
 import { NewPostComponent } from './new-post.component';
 
 describe('NewPostComponent', () => {
@@ -10,7 +9,7 @@ describe('NewPostComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, FormsModule],
+      imports: [HttpClientTestingModule],
       declarations: [NewPostComponent],
       providers: [PostService],
     });

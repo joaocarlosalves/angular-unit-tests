@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { CountriesService } from 'src/app/services/countries.service';
+import { CountriesService } from './countries.service';
 import { of } from 'rxjs';
 import { COUNTRIES } from 'src/app/mocks/countries.mock';
 

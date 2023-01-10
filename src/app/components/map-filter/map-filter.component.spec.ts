@@ -1,7 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { of, Subscription } from 'rxjs';
-import { CountriesService } from 'src/app/services/countries.service';
+import { CountriesService } from 'src/app/services/countries/countries.service';
 import { MapFilterComponent } from './map-filter.component';
 import { COUNTRIES } from 'src/app/mocks/countries.mock';
 
@@ -19,10 +19,9 @@ describe('ChildComponent', () => {
 
     fixture = TestBed.createComponent(MapFilterComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
     serv = TestBed.inject(CountriesService);
     component.ngOnInit();
-    component.subscription = new Subscription;
+    component.sub = new Subscription;
   });
 
   afterEach(() => component.ngOnDestroy())
@@ -35,15 +34,13 @@ describe('ChildComponent', () => {
     expect(spyNgOnInit).toHaveBeenCalled();
   });
 
-
   it('should test subscription on ngOnInit', () => {
     of(COUNTRIES).subscribe((c: any) => serv._countries$.next(c));
-    component.subscription = serv.getCountries().subscribe((c: any) => {
+    component.sub = serv.getCountries().subscribe((c: any) => {
       serv.countries = c;
       expect(serv.countries).toEqual(c);
     });
   });
-
 
   it('should test getCountry()', fakeAsync(async () => {
     of(COUNTRIES).subscribe((c: any) => component.countries = c);

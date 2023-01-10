@@ -1,32 +1,21 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { CountriesService } from 'src/app/services/countries.service';
+import { CountriesService } from 'src/app/services/countries/countries.service';
 
 @Component({
   selector: 'map-filter',
-  template: `
-    <div class="full flex column gap-10px mt30px">
-      <label>Add Item</label>
-      <input class="p-input" type='text' (keyup)="searchCountry($event)" />
-    </div>
-  `,
-  styles: [`
-    .flag { width: 30px; height: 22px }
-    input[type='text'] { max-width: 300px }
-  `]
+  template: ``
 })
 export class MapFilterComponent implements OnInit, OnDestroy {
-  subscription: Subscription;
+  sub: Subscription;
   countries: any = {};
   selectedCountry: any = [];
 
-  constructor(private countriesService: CountriesService) {}
+  constructor(private serv: CountriesService) {}
 
-  ngOnInit() {
-    this.subscription = this.countriesService.getCountries().subscribe((c: any) => { this.countries = c });
-  }
+  ngOnInit() { this.sub = this.serv.getCountries().subscribe((c: any) => { this.countries = c }) }
 
-  ngOnDestroy() { this.subscription.unsubscribe() }
+  ngOnDestroy() { this.sub.unsubscribe() }
 
   searchCountry(event: any) {
     if(event.target.value.length < 2) setTimeout(() => this.selectedCountry = [], 500);

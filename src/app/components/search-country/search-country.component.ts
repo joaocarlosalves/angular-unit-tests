@@ -1,18 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CountriesService } from 'src/app/services/countries.service';
+import { CountriesService } from 'src/app/services/countries/countries.service';
 import { takeWhile } from "rxjs/operators"
 
 @Component({
   selector: 'search-country',
-  templateUrl: './search-country.component.html'
+  template: ''
 })
 export class SearchCountryComponent implements OnInit, OnDestroy {
   unsub: boolean = true;
   countries: any = {};
   selectedCountry: any = [];
-  tags: any = {
-    flags: ['includes()', 'new Set()', '...spread', 'array.forEach()', 'array.push()', 'async/await', 'service', 'observable', 'subscribe', 'takeWhile()']
-  }
 
   constructor(private countriesService: CountriesService) {}
 

@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { takeWhile } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { SearchCountryComponent } from './search-country.component';
-import { CountriesService } from 'src/app/services/countries.service';
+import { CountriesService } from 'src/app/services/countries/countries.service';
 import { COUNTRIES } from 'src/app/mocks/countries.mock';
 
 describe('SearchCountryComponent', () => {

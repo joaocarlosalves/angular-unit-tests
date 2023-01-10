@@ -1,20 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { PostService } from 'src/app/services/post.service';
+import { PostService } from 'src/app/services/post/post.service';
 
 @Component({
   selector: 'feed',
-  template: `
-    <ul>
-      <li *ngFor='let post of posts'>
-          <a [href]="post.link">
-            <span>{{ post.title }}</span><br>
-            <span>{{ post.author }}</span><br>
-            <span>{{ post.date }}</span>
-          </a>
-      </li>
-    </ul>
-  `
+  template: ``
 })
 export class FeedComponent implements OnInit, OnDestroy {
   subscription: Subscription;

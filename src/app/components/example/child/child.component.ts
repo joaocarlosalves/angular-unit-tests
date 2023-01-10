@@ -4,13 +4,7 @@ import { Store } from 'src/app/services/store/store.service';
 
 @Component({
   selector: 'child',
-  template: `
-    <div style="margin: 10%">
-      <button (click)="setMap()">add to store setMap</button>
-
-      <span>{{ blee }}</span>
-    </div>
-  `
+  template: ``
 })
 export class ChildComponent implements OnInit, OnDestroy {
   blee: any[] = [];
@@ -20,9 +14,7 @@ export class ChildComponent implements OnInit, OnDestroy {
 
   constructor(private store: Store) {}
 
-  ngOnInit() {
-    this.blee$ = this.store.get('blee').subscribe((blee: any) => this.blee = blee);
-  }
+  ngOnInit() { this.blee$ = this.store.get('blee').subscribe((blee: any) => this.blee = blee) }
 
   ngOnDestroy() { this.blee$.unsubscribe() }
 
