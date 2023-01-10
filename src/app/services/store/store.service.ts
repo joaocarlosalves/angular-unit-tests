@@ -3,8 +3,8 @@ import { BehaviorSubject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class Store {
-  m = new Map();
-  _s$ = new BehaviorSubject<any>(0);
+  m: any = new Map();
+  _s$: any = new BehaviorSubject<any>(0);
 
   set(i: string, p: any) { this.m.set(i, p) }
 
