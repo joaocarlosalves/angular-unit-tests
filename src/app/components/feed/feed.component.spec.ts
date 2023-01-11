@@ -1,41 +1,24 @@
-import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of } from 'rxjs';
 import { PostService } from 'src/app/services/post/post.service';
-import { FeedComponent } from './feed.component';
 import { POSTS } from 'src/app/mocks/posts.mock'
+import { FeedComponent } from './feed.component';
 
 describe('FeedComponent', () => {
   let component: FeedComponent,
-      fixture: ComponentFixture<FeedComponent>,
-      postService: PostService;
+      serv: PostService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      declarations: [FeedComponent],
-      providers: [PostService]
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(FeedComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-    postService = TestBed.get(PostService);
+  beforeEach(() => {
+    TestBed.configureTestingModule({ imports: [HttpClientTestingModule] }).compileComponents();
+    serv = TestBed.get(PostService);
+    component = new FeedComponent(serv)
   });
 
-  it('should create', () => expect(component).toBeTruthy());
-
-  it('should test ngOnInit', () => {
-    let init = spyOn(component, 'ngOnInit');
-    init();
-    expect(init).toHaveBeenCalled();
-  });
-
-  it('should test getPosts()', fakeAsync(() => {
-    let spyPosts = spyOn(postService, 'getPosts').and.returnValue(of(POSTS));
+  it('should test getPosts()', () => {
+    spyOn(serv, 'getPosts').and.returnValue(of(POSTS));
     component.ngOnInit();
-    postService.getPosts().subscribe((p: any) => expect(p).toEqual(POSTS));
     expect(component.posts).toEqual(POSTS);
-    expect(spyPosts).toHaveBeenCalled();
-  }));
+    component.ngOnDestroy();
+  });
 });

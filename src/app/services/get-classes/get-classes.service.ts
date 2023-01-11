@@ -18,15 +18,14 @@ export class QuestsService {
   getQuestListByClass(id: number) {
     this.httpClient
       .get(`${ this.url }/main-class/${ id }`)
-      .subscribe((quests: any) => {
-        if(quests.length) this._quests$.next(quests);
-        else this._quests$.next();
-      })
+      .pipe(catchError(this.handleError))
+      .subscribe((quests: any) => this._quests$.next(quests))
   }
 
   addQuestInProgress(id: any, user: any): Observable<any> {
     return this.httpClient
       .post(`${ this.url }/in-progress/${ id }/${ user }`, '')
+      .pipe(catchError(this.handleError))
       .pipe(
         retry(2),
         catchError(this.handleError));

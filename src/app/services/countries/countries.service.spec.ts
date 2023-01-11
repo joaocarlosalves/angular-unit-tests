@@ -8,8 +8,8 @@ describe('CountriesService', () => {
   let serv: CountriesService,
       httpMock: HttpTestingController;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [CountriesService],
     });

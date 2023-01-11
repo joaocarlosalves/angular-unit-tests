@@ -1,5 +1,5 @@
-import { ExampleComponent } from './example.component';
 import { of } from 'rxjs';
+import { ExampleComponent } from './example.component';
 import { Store } from 'src/app/services/store/store.service';
 
 describe('ExampleComponent', () => {
