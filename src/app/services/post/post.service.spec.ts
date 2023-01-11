@@ -11,18 +11,10 @@ describe('PostService', () => {
       http: HttpClient;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule]
-    });
+    TestBed.configureTestingModule({ imports: [HttpClientTestingModule] });
     http = TestBed.inject(HttpClient);
     httpMock = TestBed.inject(HttpTestingController);
     serv = TestBed.inject(PostService);
-  });
-
-  it('should test getPosts', () => {
-    serv.getPosts();
-    expect(serv).toBeTruthy();
-    expect(serv.getPosts).toBeTruthy();
   });
 
   it('should test insert Post', async () => {
@@ -32,12 +24,13 @@ describe('PostService', () => {
     req.flush('');
   });
 
-  it('should test get Post', () => {
+  it('should test getPost', () => {
     let postSpy = spyOn(http, 'get').and.returnValue(of(POSTS));
     serv.retrievePosts();
-    postSpy('').subscribe((posts: any) => {
-      serv.posts$.next(posts);
-      expect(serv.posts$.next).toBeTruthy();
-    });
+    postSpy('').subscribe();
+    expect(postSpy).toHaveBeenCalled();
+
+    serv.getPosts();
+    expect(serv.getPosts).toBeTruthy();
   });
 });

@@ -1,18 +1,13 @@
 import { Component } from '@angular/core';
 import { Store } from 'src/app/services/store/store.service';
+import { PAYLOAD } from 'src/app/mocks/payload.mock'
 
 @Component({
   selector: 'example',
   template: ''
 })
 export class ExampleComponent {
-  list: any[] = [
-    { id: 1, text: 'example: 1' },
-    { id: 2, text: 'example: 2' },
-    { id: 3, text: 'example: 3' },
-    { id: 4, text: 'example: 4' },
-    { id: 5, text: 'example: 5' }
-  ];
+  list: any[] = PAYLOAD;
   opened = false;
 
   constructor(public store: Store) { this.store.set('example', this.list) }

@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of } from 'rxjs';
+import { POSTS } from 'src/app/mocks/posts.mock';
 import { PostService } from 'src/app/services/post/post.service';
-import { POSTS } from 'src/app/mocks/posts.mock'
 import { FeedComponent } from './feed.component';
 
 describe('FeedComponent', () => {
@@ -12,7 +12,7 @@ describe('FeedComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({ imports: [HttpClientTestingModule] }).compileComponents();
     serv = TestBed.get(PostService);
-    component = new FeedComponent(serv)
+    component = new FeedComponent(serv);
   });
 
   it('should test getPosts()', () => {

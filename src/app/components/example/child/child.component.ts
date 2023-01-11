@@ -8,9 +8,7 @@ import { Store } from 'src/app/services/store/store.service';
 })
 export class ChildComponent implements OnInit, OnDestroy {
   blee: any[] = [];
-
   blee$: Subscription;
-  //blee$: Observable<any> = this.store.get('blee');
 
   constructor(private store: Store) {}
 

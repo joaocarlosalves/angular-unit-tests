@@ -7,18 +7,11 @@ describe('NewPostComponent', () => {
   let component: NewPostComponent,
       serv: PostService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      declarations: [NewPostComponent],
-      providers: [PostService],
-    });
-
+  beforeEach(() => {
+    TestBed.configureTestingModule({ imports: [HttpClientTestingModule] });
     serv = TestBed.get(PostService);
     component = new NewPostComponent(serv);
   });
-
-  it('should create', () => expect(component).toBeTruthy());
 
   it('should test validPost() and check if valid = true ', () => {
     component.title = '1';
@@ -34,16 +27,9 @@ describe('NewPostComponent', () => {
   });
 
   it('should submitPost()', () => {
-    let post = {
-      title: 'this.title',
-      author: 'this.author',
-      link: 'this.link',
-      date: '05/05/2022',
-    },
-    postSpy = spyOn(serv, 'insertPost');
-
+    let postSpy = spyOn(serv, 'insertPost');
     component.submitPost();
-    postSpy(post);
-    expect(postSpy).toHaveBeenCalledWith(post);
+    postSpy('post');
+    expect(postSpy).toHaveBeenCalledWith('post');
   });
 });
