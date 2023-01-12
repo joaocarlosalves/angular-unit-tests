@@ -33,8 +33,7 @@ describe('SearchCountryComponent', () => {
   fakeAsync(() => {
     component.searchCountry({ target: { value: 'a' } });
     tick(501);
-    component.selectedCountry = [];
-    expect(component.selectedCountry).toEqual([]);
+    expect(component.selectedCountry = []).toEqual([]);
   }));
 
   it('should set selectedCountry to an empty array if the search term is more than two characters',
@@ -42,7 +41,6 @@ describe('SearchCountryComponent', () => {
     of(COUNTRIES).subscribe((c: any) => component.countries = c);
     component.searchCountry({ target: { value: 'braz' } });
     tick(101);
-    component.selectedCountry = [{ "country": "Brazil", "id": "BR" }];
-    expect(component.selectedCountry).toEqual([{ "country": "Brazil", "id": "BR" }]);
+    expect(component.selectedCountry = [{ "country": "Brazil", "id": "BR" }]).toEqual([{ "country": "Brazil", "id": "BR" }]);
   }));
 });

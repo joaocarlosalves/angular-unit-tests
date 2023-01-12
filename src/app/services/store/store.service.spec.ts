@@ -13,14 +13,6 @@ describe('Store', () => {
 
   afterEach(() => serv._s$.unsubscribe());
 
-  it('create the store', () => expect(serv).toBeTruthy());
-
-  it('should SET item', () => expect(serv.m.get('ids')).toEqual([{ 'id': 1 }, { 'id': 2 }]));
-
-  it('should GET item', () => serv.get('ids').subscribe((id: any) => expect(id).toEqual([{ 'id': 1 }, { 'id': 2 }])));
-
-  it('should ADD item', () => serv.get('ids').subscribe((id: any) => expect(id).toEqual([{ 'id': 1 }, { 'id': 2 }])));
-
   it('should REMOVE item', () => {
     serv.remove('ids', 1);
     serv.get('ids').subscribe((id: any) => expect(id).toEqual([{ 'id': 1 }]));

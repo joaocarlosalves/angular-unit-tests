@@ -29,7 +29,6 @@ describe('PostService', () => {
     serv.retrievePosts();
     postSpy('').subscribe();
     expect(postSpy).toHaveBeenCalled();
-
     serv.getPosts();
     expect(serv.getPosts).toBeTruthy();
   });

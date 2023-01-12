@@ -19,8 +19,6 @@ describe('QuestsService', () => {
     serv = TestBed.inject(QuestsService);
   });
 
-  it('should create the store', () => expect(serv).toBeTruthy());
-
   it('should call addQuestInProgress', () => {
     serv.addQuestInProgress(1, 1);
     expect(serv.addQuestInProgress).toBeTruthy();

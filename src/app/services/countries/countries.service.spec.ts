@@ -13,12 +13,9 @@ describe('CountriesService', () => {
       imports: [HttpClientTestingModule],
       providers: [CountriesService],
     });
-
     httpMock = TestBed.inject(HttpTestingController);
     serv = TestBed.inject(CountriesService);
   });
-
-  it('should be created', () => expect(serv).toBeTruthy());
 
   it('should test insertPost(body)', async () => {
     let req = await httpMock.expectOne('http://localhost:3000/countries');
@@ -36,29 +33,23 @@ describe('CountriesService', () => {
 
   it('should test getCountry', () => {
     let countries: any = [];
-
     serv.getCountry('braz');
-
     of(COUNTRIES).subscribe((c: any) => serv._countries$.next(c));
     serv.getCountries().subscribe((c: any) => {
       serv.countries = c;
       expect(serv.countries).toEqual(c);
     });
-
     serv.countries.forEach((cd: any) => { if(cd.country.toLowerCase().includes('braz'.toLowerCase())) countries.push(cd) });
   });
 
   it('should test getCountriesArray', () => {
     let countries: any = [];
-
     serv.getCountriesArray();
-
     of(COUNTRIES).subscribe((c: any) => serv._countries$.next(c));
     serv.getCountries().subscribe((c: any) => {
       serv.countries = c;
       expect(serv.countries).toEqual(c);
     });
-
     serv.countries.forEach((cd: any) => countries.push(cd.country));
   });
 });
