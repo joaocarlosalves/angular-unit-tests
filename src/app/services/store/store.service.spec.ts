@@ -11,8 +11,6 @@ describe('Store', () => {
     serv.add('ids', { 'id': 2 });
   });
 
-  afterEach(() => serv._s$.unsubscribe());
-
   it('should REMOVE item', () => {
     serv.remove('ids', 1);
     serv.get('ids').subscribe((id: any) => expect(id).toEqual([{ 'id': 1 }]));

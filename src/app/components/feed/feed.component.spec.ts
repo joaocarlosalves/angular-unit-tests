@@ -15,10 +15,11 @@ describe('FeedComponent', () => {
     component = new FeedComponent(serv);
   });
 
+  afterEach(() => component.ngOnDestroy());
+
   it('should test getPosts()', () => {
     spyOn(serv, 'getPosts').and.returnValue(of(POSTS));
     component.ngOnInit();
     expect(component.posts).toEqual(POSTS);
-    component.ngOnDestroy();
   });
 });

@@ -10,12 +10,11 @@ describe('ChildComponent', () => {
     const storeSpy = jasmine.createSpyObj<Store>(['get', 'set']);
     storeSpy.get.and.returnValue(of(PAYLOAD));
     component = new ChildComponent(storeSpy);
-  });
-
-  it('should test setMap', () => {
     component.setMap();
     component.ngOnInit();
-    expect(component.blee).toEqual(PAYLOAD);
-    component.ngOnDestroy();
   });
+
+  afterEach(() => component.ngOnDestroy());
+
+  it('should test setMap', () => expect(component.blee).toEqual(PAYLOAD));
 });

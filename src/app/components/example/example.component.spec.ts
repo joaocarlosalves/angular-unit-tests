@@ -10,10 +10,8 @@ describe('ExampleComponent', () => {
     const storeSpy = jasmine.createSpyObj<Store>(['get', 'set']);
     storeSpy.get.and.returnValue(of(PAYLOAD));
     component = new ExampleComponent(storeSpy);
+    component.setMap();
   });
 
-  it('should test setMap', () => {
-    component.setMap();
-    expect(component.list).toEqual(PAYLOAD);
-  });
+  it('should test setMap', () => expect(component.list).toEqual(PAYLOAD));
 });
