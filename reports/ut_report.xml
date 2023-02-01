@@ -1,55 +1,52 @@
 <testExecutions version="1">
+  <file path="src/app/services/post/post.service.spec.ts">
+    <testCase name="PostService should test insert Post" duration="15"/>
+    <testCase name="PostService should test getPost" duration="3"/>
+  </file>
+  <file path="src/app/components/new-post/new-post.component.spec.ts">
+    <testCase name="NewPostComponent should test validPost() and check if valid = false " duration="2"/>
+    <testCase name="NewPostComponent should test validPost() and check if valid = true " duration="1"/>
+    <testCase name="NewPostComponent should submitPost()" duration="13"/>
+  </file>
   <file path="src/app/components/search-country/search-country.component.spec.ts">
-    <testCase name="SearchCountryComponent should set selectedCountry to an empty array if the search term is less than two characters" duration="15"/>
     <testCase name="SearchCountryComponent should set selectedCountry to an empty array if the search term is more than two characters" duration="4"/>
     <testCase name="SearchCountryComponent should test insertPost(body)" duration="2"/>
+    <testCase name="SearchCountryComponent should set selectedCountry to an empty array if the search term is less than two characters" duration="2"/>
   </file>
-  <file path="src/app/services/countries/countries.service.spec.ts">
-    <testCase name="CountriesService should test subscription on ngOnInit" duration="2"/>
-    <testCase name="CountriesService should test getCountry" duration="2"/>
-    <testCase name="CountriesService should test insertPost(body)" duration="2"/>
-    <testCase name="CountriesService should test getCountriesArray" duration="2"/>
+  <file path="src/app/components/map-filter/map-filter.component.spec.ts">
+    <testCase name="ChildComponent should set selectedCountry to an empty array if the search term is less than two characters" duration="2"/>
+    <testCase name="ChildComponent should test subscription on ngOnInit" duration="1"/>
+    <testCase name="ChildComponent should set selectedCountry to an empty array if the search term is more than two characters" duration="1"/>
   </file>
   <file path="src/app/services/store/store.service.spec.ts">
-    <testCase name="Store should REMOVE item" duration="2"/>
-    <testCase name="Store should REMOVE item by Key" duration="1"/>
+    <testCase name="Store should REMOVE item" duration="1"/>
+    <testCase name="Store should REMOVE item by Key" duration="2"/>
+  </file>
+  <file path="src/app/services/get-classes/get-classes.service.spec.ts">
+    <testCase name="QuestsService should call getQuests" duration="2"/>
+    <testCase name="QuestsService should call addQuestInProgress" duration="1"/>
+    <testCase name="QuestsService should getQuestListByClass have been called" duration="1"/>
+    <testCase name="QuestsService should call handleError" duration="2"/>
   </file>
   <file path="src/app/components/push-pop/push-pop.component.spec.ts">
     <testCase name="PushPopComponent should test addToListInput()" duration="1"/>
     <testCase name="PushPopComponent should test addToList()" duration="1"/>
-    <testCase name="PushPopComponent should test removeFromList()" duration="1"/>
     <testCase name="PushPopComponent should test pop()" duration="1"/>
+    <testCase name="PushPopComponent should test removeFromList()" duration="1"/>
   </file>
-  <file path="src/app/components/feed/feed.component.spec.ts">
-    <testCase name="FeedComponent should test getPosts()" duration="2"/>
+  <file path="src/app/services/countries/countries.service.spec.ts">
+    <testCase name="CountriesService should test insertPost(body)" duration="2"/>
+    <testCase name="CountriesService should test subscription on ngOnInit" duration="1"/>
+    <testCase name="CountriesService should test getCountry" duration="2"/>
+    <testCase name="CountriesService should test getCountriesArray" duration="1"/>
   </file>
-  <file path="src/app/components/img-base64/img-base64.component.spec.ts">
-    <testCase name="Base64Component should test selecFile" duration="1"/>
-  </file>
-  <file path="src/app/components/map-filter/map-filter.component.spec.ts">
-    <testCase name="ChildComponent should set selectedCountry to an empty array if the search term is less than two characters" duration="2"/>
-    <testCase name="ChildComponent should test subscription on ngOnInit" duration="2"/>
-    <testCase name="ChildComponent should set selectedCountry to an empty array if the search term is more than two characters" duration="2"/>
-  </file>
-  <file path="src/app/services/get-classes/get-classes.service.spec.ts">
-    <testCase name="QuestsService should call addQuestInProgress" duration="2"/>
-    <testCase name="QuestsService should call getQuests" duration="2"/>
-    <testCase name="QuestsService should call handleError" duration="1"/>
-    <testCase name="QuestsService should getQuestListByClass have been called" duration="1"/>
-  </file>
-  <file path="src/app/components/new-post/new-post.component.spec.ts">
-    <testCase name="NewPostComponent should test validPost() and check if valid = true " duration="1"/>
-    <testCase name="NewPostComponent should submitPost()" duration="1"/>
-    <testCase name="NewPostComponent should test validPost() and check if valid = false " duration="1"/>
-  </file>
-  <file path="src/app/services/post/post.service.spec.ts">
-    <testCase name="PostService should test getPost" duration="1"/>
-    <testCase name="PostService should test insert Post" duration="1"/>
+  <file path="src/app/components/example/example.component.spec.ts">
+    <testCase name="ExampleComponent should test setMap" duration="1"/>
   </file>
   <file path="src/app/components/map-filter/map-filter.component.spec.ts">
     <testCase name="ChildComponent should test setMap" duration="1"/>
   </file>
-  <file path="src/app/components/example/example.component.spec.ts">
-    <testCase name="ExampleComponent should test setMap" duration="1"/>
+  <file path="src/app/components/feed/feed.component.spec.ts">
+    <testCase name="FeedComponent should test getPosts()" duration="1"/>
   </file>
 </testExecutions>
