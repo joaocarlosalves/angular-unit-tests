@@ -8,6 +8,7 @@ import { MapFilterComponent } from './map-filter/map-filter.component';
 import { PushPopComponent } from './push-pop/push-pop.component';
 import { SearchCountryComponent } from './search-country/search-country.component';
 import { ExampleModule } from './example/example.module';
+import { Base64Component } from './img-base64/img-base64.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ExampleModule } from './example/example.module';
     FeedComponent,
     MapFilterComponent,
     PushPopComponent,
-    SearchCountryComponent
+    SearchCountryComponent,
+    Base64Component
   ],
   imports: [
     CommonModule,

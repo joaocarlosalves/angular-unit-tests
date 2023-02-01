@@ -11,23 +11,24 @@ describe('Base64Component', () => {
   it('should test selecFile', () => {
     const file = new DataTransfer();
     file.items.add(new File([''], './test.png'));
-    let file_ = file.files.item
-    component.selecFile(file_)
+    let file_ = file.files.item;
+    console.log(file.items)
+/*     component.selecFile(file_)
     let fileReceived: File = (file.files as FileList)[0];
     component.fileName = fileReceived.name;
 
-    expect(component.fileName).toEqual('Select a file...')
+    expect(component.fileName).toEqual('Select a file...') */
   });
 
-  it('should test readFile', () => {
-/*     component.uploaded = new EventEmitter();
-    let uploaded = spyOn(component.uploaded, 'emit');
-    uploaded('');
-    expect(uploaded).toHaveBeenCalled(); */
-  });
 });
 
 /*
+  it('should test readFile', () => {
+     component.uploaded = new EventEmitter();
+    let uploaded = spyOn(component.uploaded, 'emit');
+    uploaded('');
+    expect(uploaded).toHaveBeenCalled();
+  });
 
 fileName: string = 'Select a file...';
 noFileName: boolean = false;

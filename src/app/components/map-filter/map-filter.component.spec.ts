@@ -27,7 +27,6 @@ describe('ChildComponent', () => {
     expect(component.selectedCountry = []).toEqual([]);
   }));
 
-
   it('should set selectedCountry to an empty array if the search term is more than two characters',
   fakeAsync(() => {
     of(COUNTRIES).subscribe((c: any) => component.countries = c);
