@@ -9,6 +9,7 @@ import { PushPopComponent } from './push-pop/push-pop.component';
 import { SearchCountryComponent } from './search-country/search-country.component';
 import { ExampleModule } from './example/example.module';
 import { Base64Component } from './img-base64/img-base64.component';
+import { XpBarComponent } from './xp-bar/xp-bar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { Base64Component } from './img-base64/img-base64.component';
     MapFilterComponent,
     PushPopComponent,
     SearchCountryComponent,
-    Base64Component
+    Base64Component,
+    XpBarComponent
   ],
   imports: [
     CommonModule,
