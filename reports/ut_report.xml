@@ -2,71 +2,85 @@
   <file path="src/app/components/map-filter/map-filter.component.spec.ts">
     <testCase name="ChildComponent should test setMap" duration="1"/>
   </file>
-  <file path="src/app/components/feed/feed.component.spec.ts">
-    <testCase name="FeedComponent should test getPosts()" duration="4"/>
+  <file path="src/app/components/slice-splice/slice-splice.component.spec.ts">
+    <testCase name="SliceSpliceComponent searchCountry empty array" duration="6"/>
+    <testCase name="SliceSpliceComponent selectedCountry, if the search term is more than two characters and test subscribe" duration="3"/>
   </file>
   <file path="src/app/components/example/example.component.spec.ts">
     <testCase name="ExampleComponent should test setMap" duration="1"/>
   </file>
-  <file path="src/app/components/map-filter/map-filter.component.spec.ts">
-    <testCase name="ChildComponent should test subscription on ngOnInit" duration="2"/>
-    <testCase name="ChildComponent should set selectedCountry to an empty array if the search term is less than two characters" duration="2"/>
-    <testCase name="ChildComponent should set selectedCountry to an empty array if the search term is more than two characters" duration="1"/>
+  <file path="src/app/components/search-country/search-country.component.spec.ts">
+    <testCase name="SearchCountryComponent should set selectedCountry to an empty array if the search term is more than two characters" duration="2"/>
+    <testCase name="SearchCountryComponent should set selectedCountry to an empty array if the search term is less than two characters" duration="2"/>
+    <testCase name="SearchCountryComponent should test insertPost(body)" duration="2"/>
   </file>
-  <file path="src/app/components/join-concat/join-concat.component.spec.ts">
-    <testCase name="JoinConcatComponent call concatNames" duration="1"/>
-    <testCase name="JoinConcatComponent call joinNames" duration="1"/>
-  </file>
-  <file path="src/app/components/new-post/new-post.component.spec.ts">
-    <testCase name="NewPostComponent should submitPost()" duration="3"/>
-    <testCase name="NewPostComponent should test validPost() and check if valid = false " duration="2"/>
-    <testCase name="NewPostComponent should test validPost() and check if valid = true " duration="1"/>
+  <file path="src/app/components/feed/feed.component.spec.ts">
+    <testCase name="FeedComponent should test getPosts()" duration="3"/>
   </file>
   <file path="src/app/services/post/post.service.spec.ts">
-    <testCase name="PostService should test insert Post" duration="2"/>
+    <testCase name="PostService should add a post" duration="2"/>
     <testCase name="PostService should test getPost" duration="1"/>
+    <testCase name="PostService should test insert Post" duration="2"/>
   </file>
-  <file path="src/app/components/push-pop/push-pop.component.spec.ts">
-    <testCase name="PushPopComponent should test pop()" duration="1"/>
-    <testCase name="PushPopComponent should test addToListInput()" duration="1"/>
-    <testCase name="PushPopComponent should test removeFromList()" duration="1"/>
-    <testCase name="PushPopComponent should test addToList()" duration="1"/>
+  <file path="src/app/components/xp-bar/xp-bar.component.spec.ts">
+    <testCase name="XpBarComponent setInterval on Init" duration="1"/>
+    <testCase name="XpBarComponent setInterval on Init Else" duration="1"/>
+    <testCase name="XpBarComponent set xpBar %" duration="3104"/>
   </file>
   <file path="src/app/services/get-classes/get-classes.service.spec.ts">
-    <testCase name="QuestsService should call getQuests" duration="2"/>
-    <testCase name="QuestsService should call handleError" duration="1"/>
-    <testCase name="QuestsService should call addQuestInProgress" duration="2"/>
+    <testCase name="QuestsService should call getQuests" duration="26"/>
+    <testCase name="QuestsService should call addQuestInProgress" duration="1"/>
+    <testCase name="QuestsService should call handleError" duration="2"/>
     <testCase name="QuestsService should getQuestListByClass have been called" duration="1"/>
   </file>
-  <file path="src/app/components/search-country/search-country.component.spec.ts">
-    <testCase name="SearchCountryComponent should test insertPost(body)" duration="1"/>
-    <testCase name="SearchCountryComponent should set selectedCountry to an empty array if the search term is less than two characters" duration="1"/>
-    <testCase name="SearchCountryComponent should set selectedCountry to an empty array if the search term is more than two characters" duration="2"/>
-  </file>
-  <file path="src/app/services/store/store.service.spec.ts">
-    <testCase name="Store should REMOVE item by Key" duration="2"/>
-    <testCase name="Store should REMOVE item" duration="1"/>
+  <file path="src/app/components/new-post/new-post.component.spec.ts">
+    <testCase name="NewPostComponent should test validPost() and check if valid = true " duration="1"/>
+    <testCase name="NewPostComponent should test validPost() and check if valid = false " duration="1"/>
+    <testCase name="NewPostComponent should submitPost()" duration="1"/>
   </file>
   <file path="src/app/components/unsub/unsub.component.spec.ts">
     <testCase name="UnsubComponent call ngOnInit,add sub and ngOnDestroy" duration="1"/>
   </file>
+  <file path="src/app/components/switch-map/switch-map.component.spec.ts">
+    <testCase name="UserListComponent should get users and posts" duration="3"/>
+  </file>
+  <file path="src/app/services/crud-post/crud-post.service.spec.ts">
+    <testCase name="CrudPostService retrieve post by id" duration="1"/>
+    <testCase name="CrudPostService create post" duration="3"/>
+    <testCase name="CrudPostService retrieve posts" duration="1"/>
+    <testCase name="CrudPostService update post" duration="2"/>
+    <testCase name="CrudPostService delete post" duration="1"/>
+  </file>
+  <file path="src/app/components/push-pop/push-pop.component.spec.ts">
+    <testCase name="PushPopComponent should test addToListInput()" duration="1"/>
+    <testCase name="PushPopComponent should test addToList()" duration="1"/>
+    <testCase name="PushPopComponent should test pop()" duration="1"/>
+    <testCase name="PushPopComponent should test removeFromList()" duration="1"/>
+  </file>
+  <file path="src/app/services/countries/countries.service.spec.ts">
+    <testCase name="CountriesService should test insertPost(body)" duration="1"/>
+    <testCase name="CountriesService should test subscription on ngOnInit" duration="1"/>
+    <testCase name="CountriesService should test getCountry" duration="2"/>
+    <testCase name="CountriesService should test getCountriesArray" duration="2"/>
+  </file>
+  <file path="src/app/components/form/form.component.spec.ts">
+    <testCase name="FormComponent create form controls" duration="4"/>
+  </file>
+  <file path="src/app/services/store/store.service.spec.ts">
+    <testCase name="Store should REMOVE item by Key" duration="1"/>
+    <testCase name="Store should REMOVE item" duration="1"/>
+  </file>
+  <file path="src/app/components/join-concat/join-concat.component.spec.ts">
+    <testCase name="JoinConcatComponent call joinNames" duration="1"/>
+    <testCase name="JoinConcatComponent call concatNames" duration="1"/>
+  </file>
+  <file path="src/app/components/map-filter/map-filter.component.spec.ts">
+    <testCase name="ChildComponent should test subscription on ngOnInit" duration="2"/>
+    <testCase name="ChildComponent should set selectedCountry to an empty array if the search term is less than two characters" duration="1"/>
+    <testCase name="ChildComponent should set selectedCountry to an empty array if the search term is more than two characters" duration="2"/>
+  </file>
   <file path="src/app/components/sort-find/sort-find.component.spec.ts">
     <testCase name="SortFindComponent searchCountry empty array" duration="2"/>
     <testCase name="SortFindComponent selectedCountry, if the search term is more than two characters and test subscribe" duration="2"/>
-  </file>
-  <file path="src/app/services/countries/countries.service.spec.ts">
-    <testCase name="CountriesService should test getCountriesArray" duration="1"/>
-    <testCase name="CountriesService should test getCountry" duration="1"/>
-    <testCase name="CountriesService should test insertPost(body)" duration="1"/>
-    <testCase name="CountriesService should test subscription on ngOnInit" duration="1"/>
-  </file>
-  <file path="src/app/components/xp-bar/xp-bar.component.spec.ts">
-    <testCase name="XpBarComponent set xpBar %" duration="3110"/>
-    <testCase name="XpBarComponent setInterval on Init" duration="1"/>
-    <testCase name="XpBarComponent setInterval on Init Else" duration="1"/>
-  </file>
-  <file path="src/app/components/slice-splice/slice-splice.component.spec.ts">
-    <testCase name="SliceSpliceComponent searchCountry empty array" duration="1"/>
-    <testCase name="SliceSpliceComponent selectedCountry, if the search term is more than two characters and test subscribe" duration="2"/>
   </file>
 </testExecutions>
