@@ -7,7 +7,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class FormComponent {
   form: FormGroup;
-  countries = ['USA', 'Canada', 'Mexico', 'Brazil', 'Argentina', 'Peru', 'Colombia', 'Chile', 'Ecuador', 'Uruguay'];
 
   constructor(private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
