@@ -1,136 +1,146 @@
 <testExecutions version="1">
-  <file path="src/app/components/join-concat/join-concat.component.spec.ts">
-    <testCase name="JoinConcatComponent call concatNames" duration="4"/>
-    <testCase name="JoinConcatComponent call joinNames" duration="1"/>
+  <file path="src/app/components/timeline-steps/timeline-steps.component.spec.ts">
+    <testCase name="TimelineStepsComponent should create" duration="9"/>
   </file>
-  <file path="src/app/components/group-buttons/group-buttons.component.spec.ts">
-    <testCase name="GroupButtonsComponent GroupButtonsComponent" duration="1"/>
+  <file path="src/app/components/push-pop/push-pop.component.spec.ts">
+    <testCase name="PushPopComponent should test addToListInput()" duration="1"/>
+    <testCase name="PushPopComponent should test addToList()" duration="1"/>
+    <testCase name="PushPopComponent should test pop()" duration="1"/>
+    <testCase name="PushPopComponent should test removeFromList()" duration="1"/>
   </file>
-  <file path="src/app/components/map-filter/map-filter.component.spec.ts">
-    <testCase name="ChildComponent should set selectedCountry to an empty array if the search term is more than two characters" duration="14"/>
-    <testCase name="ChildComponent should set selectedCountry to an empty array if the search term is less than two characters" duration="3"/>
-    <testCase name="ChildComponent should test subscription on ngOnInit" duration="2"/>
+  <file path="src/app/services/post/post.service.spec.ts">
+    <testCase name="PostService should add a post" duration="3"/>
   </file>
-  <file path="src/app/components/legends/details-legends.component.spec.ts">
-    <testCase name="DetailsLegendsComponent should not emit isClosed event when a key other than Escape is pressed" duration="16"/>
-    <testCase name="DetailsLegendsComponent should not emit isClosed event when clicked inside the component" duration="4"/>
-    <testCase name="DetailsLegendsComponent should emit isClosed event when clicked outside the component" duration="2"/>
-    <testCase name="DetailsLegendsComponent should emit isClosed event when Escape key is pressed" duration="2"/>
+  <file path="src/app/components/slice-splice/slice-splice.component.spec.ts">
+    <testCase name="SliceSpliceComponent selectedCountry, if the search term is more than two characters and test subscribe" duration="3"/>
+    <testCase name="SliceSpliceComponent searchCountry empty array" duration="2"/>
+  </file>
+  <file path="src/app/components/unsub/unsub.component.spec.ts">
+    <testCase name="UnsubComponent call ngOnInit,add sub and ngOnDestroy" duration="1"/>
+  </file>
+  <file path="src/app/components/pagination/pagination.component.spec.ts">
+    <testCase name="PaginationComponent should update pages correctly on next()" duration="1"/>
+    <testCase name="PaginationComponent should call push to change page" duration="1"/>
+    <testCase name="PaginationComponent should update pages correctly on nav()" duration="1"/>
+    <testCase name="PaginationComponent should initialize with default values" duration="1"/>
+    <testCase name="PaginationComponent should update pages correctly on unshift()" duration="1"/>
+    <testCase name="PaginationComponent should update pages correctly on next()" duration="1"/>
+    <testCase name="PaginationComponent should check and update current page correctly on checkLimits()" duration="1"/>
+    <testCase name="PaginationComponent should create" duration="1"/>
+    <testCase name="PaginationComponent should call reset() OnInit" duration="1"/>
+    <testCase name="PaginationComponent should update pages correctly on prev()" duration="1"/>
+    <testCase name="PaginationComponent should change the current page and emit activePage correctly on changePage()" duration="1"/>
+    <testCase name="PaginationComponent should update pages correctly on unshift()" duration="1"/>
+    <testCase name="PaginationComponent should update pages correctly on nav()" duration="1"/>
+    <testCase name="PaginationComponent should check if the nextEnd button is valid" duration="1"/>
+    <testCase name="PaginationComponent should check if the previous button is valid" duration="1"/>
+    <testCase name="PaginationComponent should update pages correctly on push()" duration="1"/>
+    <testCase name="PaginationComponent should update pages correctly on reset()" duration="1"/>
+    <testCase name="PaginationComponent should check if the next button is valid" duration="1"/>
+    <testCase name="PaginationComponent should check if the next button is valid" duration="1"/>
+    <testCase name="PaginationComponent should update pages correctly on reset()" duration="1"/>
+  </file>
+  <file path="src/app/components/new-post/new-post.component.spec.ts">
+    <testCase name="NewPostComponent should test validPost() and check if valid = false " duration="1"/>
+    <testCase name="NewPostComponent should submitPost()" duration="1"/>
+    <testCase name="NewPostComponent should test validPost() and check if valid = true " duration="1"/>
   </file>
   <file path="src/app/components/example/example.component.spec.ts">
     <testCase name="ExampleComponent should test setMap" duration="1"/>
   </file>
   <file path="src/app/components/map-filter/map-filter.component.spec.ts">
+    <testCase name="ChildComponent should test subscription on ngOnInit" duration="2"/>
+    <testCase name="ChildComponent should set selectedCountry to an empty array if the search term is more than two characters" duration="2"/>
+    <testCase name="ChildComponent should set selectedCountry to an empty array if the search term is less than two characters" duration="2"/>
     <testCase name="ChildComponent should test setMap" duration="1"/>
   </file>
-  <file path="src/app/components/form/form.component.spec.ts">
-    <testCase name="FormComponent create form controls" duration="5"/>
-  </file>
   <file path="src/app/services/store/store.service.spec.ts">
-    <testCase name="Store should REMOVE item" duration="2"/>
+    <testCase name="Store should REMOVE item" duration="1"/>
     <testCase name="Store should REMOVE item by Key" duration="1"/>
   </file>
-  <file path="src/app/components/feed/feed.component.spec.ts">
-    <testCase name="FeedComponent should test getPosts()" duration="2"/>
+  <file path="src/app/components/switch-map/switch-map.component.spec.ts">
+    <testCase name="UserListComponent should get users and posts" duration="3"/>
   </file>
-  <file path="src/app/components/pagination/pagination.component.spec.ts">
-    <testCase name="PaginationComponent should update pages correctly on next()" duration="1"/>
-    <testCase name="PaginationComponent should update pages correctly on reset()" duration="1"/>
-    <testCase name="PaginationComponent should check if the next button is valid" duration="1"/>
-    <testCase name="PaginationComponent should check if the next button is valid" duration="1"/>
-    <testCase name="PaginationComponent should check and update current page correctly on checkLimits()" duration="1"/>
-    <testCase name="PaginationComponent should check if the nextEnd button is valid" duration="1"/>
-    <testCase name="PaginationComponent should change the current page and emit activePage correctly on changePage()" duration="1"/>
-    <testCase name="PaginationComponent should update pages correctly on unshift()" duration="1"/>
-    <testCase name="PaginationComponent should update pages correctly on nav()" duration="1"/>
-    <testCase name="PaginationComponent should update pages correctly on prev()" duration="1"/>
-    <testCase name="PaginationComponent should update pages correctly on push()" duration="1"/>
-    <testCase name="PaginationComponent should update pages correctly on next()" duration="1"/>
-    <testCase name="PaginationComponent should check if the previous button is valid" duration="1"/>
-    <testCase name="PaginationComponent should update pages correctly on nav()" duration="1"/>
-    <testCase name="PaginationComponent should call reset() OnInit" duration="1"/>
-    <testCase name="PaginationComponent should create" duration="1"/>
-    <testCase name="PaginationComponent should initialize with default values" duration="1"/>
-    <testCase name="PaginationComponent should update pages correctly on unshift()" duration="1"/>
-    <testCase name="PaginationComponent should update pages correctly on reset()" duration="1"/>
-    <testCase name="PaginationComponent should call push to change page" duration="1"/>
+  <file path="src/app/components/loading/loading.spec.ts">
+    <testCase name="LoadingComponent should add &quot;overflow-hidden&quot; class to body element on construction" duration="4"/>
+    <testCase name="LoadingComponent should remove &quot;overflow-hidden&quot; class from body element on destruction" duration="1"/>
+    <testCase name="LoadingComponent should emit &quot;isLoaded&quot; event on ngOnDestroy" duration="1"/>
   </file>
-  <file path="src/app/components/new-post/new-post.component.spec.ts">
-    <testCase name="NewPostComponent should test validPost() and check if valid = true " duration="1"/>
-    <testCase name="NewPostComponent should submitPost()" duration="12"/>
-    <testCase name="NewPostComponent should test validPost() and check if valid = false " duration="2"/>
+  <file path="src/app/components/group-buttons/group-buttons.component.spec.ts">
+    <testCase name="GroupButtonsComponent GroupButtonsComponent" duration="1"/>
+  </file>
+  <file path="src/app/services/countries/countries.service.spec.ts">
+    <testCase name="CountriesService should test getCountriesArray" duration="2"/>
+    <testCase name="CountriesService should test subscription on ngOnInit" duration="1"/>
+    <testCase name="CountriesService should test insertPost(body)" duration="2"/>
+    <testCase name="CountriesService should test getCountry" duration="2"/>
+  </file>
+  <file path="src/app/components/sort-find/sort-find.component.spec.ts">
+    <testCase name="SortFindComponent searchCountry empty array" duration="2"/>
+    <testCase name="SortFindComponent selectedCountry, if the search term is more than two characters and test subscribe" duration="2"/>
+  </file>
+  <file path="src/app/components/dialog/dialog.component.spec.ts">
+    <testCase name="DialogComponent should add &quot;overflow-hidden&quot; class to body element on construction" duration="6"/>
+    <testCase name="DialogComponent should emit &quot;isClosed&quot; event when closeDialog is called" duration="2"/>
+    <testCase name="DialogComponent should remove &quot;overflow-hidden&quot; class from body element on destruction" duration="2"/>
+    <testCase name="DialogComponent should not close the dialog on &quot;Escape&quot; key press if noEscape is true" duration="2"/>
+    <testCase name="DialogComponent should close the dialog on &quot;Escape&quot; key press if noEscape is false" duration="1"/>
+  </file>
+  <file path="src/app/services/crud-post/crud-post.service.spec.ts">
+    <testCase name="CrudPostService retrieve post by id" duration="1"/>
+    <testCase name="CrudPostService retrieve posts" duration="1"/>
+    <testCase name="CrudPostService update post" duration="1"/>
+    <testCase name="CrudPostService create post" duration="1"/>
+    <testCase name="CrudPostService delete post" duration="1"/>
   </file>
   <file path="src/app/components/search-country/search-country.component.spec.ts">
     <testCase name="SearchCountryComponent should set selectedCountry to an empty array if the search term is less than two characters" duration="2"/>
     <testCase name="SearchCountryComponent should test insertPost(body)" duration="2"/>
     <testCase name="SearchCountryComponent should set selectedCountry to an empty array if the search term is more than two characters" duration="2"/>
   </file>
-  <file path="src/app/services/crud-post/crud-post.service.spec.ts">
-    <testCase name="CrudPostService update post" duration="2"/>
-    <testCase name="CrudPostService create post" duration="1"/>
-    <testCase name="CrudPostService retrieve posts" duration="1"/>
-    <testCase name="CrudPostService retrieve post by id" duration="1"/>
-    <testCase name="CrudPostService delete post" duration="1"/>
+  <file path="src/app/services/get-classes/get-classes.service.spec.ts">
+    <testCase name="QuestsService should call addQuestInProgress" duration="1"/>
+    <testCase name="QuestsService should call handleError" duration="1"/>
+    <testCase name="QuestsService should call getQuests" duration="2"/>
+    <testCase name="QuestsService should getQuestListByClass have been called" duration="1"/>
   </file>
-  <file path="src/app/components/push-pop/push-pop.component.spec.ts">
-    <testCase name="PushPopComponent should test addToListInput()" duration="1"/>
-    <testCase name="PushPopComponent should test removeFromList()" duration="1"/>
-    <testCase name="PushPopComponent should test pop()" duration="1"/>
-    <testCase name="PushPopComponent should test addToList()" duration="1"/>
-  </file>
-  <file path="src/app/services/post/post.service.spec.ts">
-    <testCase name="PostService should test insert Post" duration="1"/>
-    <testCase name="PostService should test getPost" duration="2"/>
+  <file path="src/app/components/form/form.component.spec.ts">
+    <testCase name="FormComponent create form controls" duration="4"/>
   </file>
   <file path="src/app/components/snackbar/snackbar.component.spec.ts">
-    <testCase name="SnackbarComponent should call setClose after the specified timer duration" duration="7"/>
-    <testCase name="SnackbarComponent should set classList correctly when calling setBottom" duration="5"/>
-    <testCase name="SnackbarComponent should set classList correctly when calling setLeft" duration="3"/>
-    <testCase name="SnackbarComponent should add class and emit close event after a delay when calling setClose" duration="4"/>
-    <testCase name="SnackbarComponent should create the component" duration="2"/>
-    <testCase name="SnackbarComponent should set classList correctly when calling setTopRight" duration="3"/>
-    <testCase name="SnackbarComponent should set classList correctly when calling setTop" duration="1"/>
-    <testCase name="SnackbarComponent should add class and set setCloseAnim correctly when calling setClass" duration="1"/>
-    <testCase name="SnackbarComponent should emit close event after the specified timeout" duration="2"/>
-    <testCase name="SnackbarComponent should set classList correctly when calling setBottomRight" duration="2"/>
+    <testCase name="SnackbarComponent should set classList correctly when calling setRight" duration="6"/>
     <testCase name="SnackbarComponent should set the close animation class on setClose" duration="2"/>
-    <testCase name="SnackbarComponent should set classList correctly when calling setRight" duration="4"/>
-    <testCase name="SnackbarComponent should set noCloseOnEsc correctly" duration="2"/>
-    <testCase name="SnackbarComponent should handle the &quot;Escape&quot; keydown event correctly" duration="2"/>
     <testCase name="SnackbarComponent should set classList correctly when calling setTopLeft" duration="2"/>
-    <testCase name="SnackbarComponent should set classList correctly when calling setBottomLeft" duration="1"/>
+    <testCase name="SnackbarComponent should emit close event after the specified timeout" duration="2"/>
+    <testCase name="SnackbarComponent should set classList correctly when calling setLeft" duration="3"/>
+    <testCase name="SnackbarComponent should set classList correctly when calling setBottomLeft" duration="4"/>
+    <testCase name="SnackbarComponent should create the component" duration="1"/>
+    <testCase name="SnackbarComponent should add class and emit close event after a delay when calling setClose" duration="3"/>
+    <testCase name="SnackbarComponent should set classList correctly when calling setTopRight" duration="2"/>
     <testCase name="SnackbarComponent should call setClose after the specified timer duration" duration="2"/>
-  </file>
-  <file path="src/app/services/countries/countries.service.spec.ts">
-    <testCase name="CountriesService should test insertPost(body)" duration="2"/>
-    <testCase name="CountriesService should test subscription on ngOnInit" duration="2"/>
-    <testCase name="CountriesService should test getCountry" duration="1"/>
-    <testCase name="CountriesService should test getCountriesArray" duration="1"/>
-  </file>
-  <file path="src/app/components/slice-splice/slice-splice.component.spec.ts">
-    <testCase name="SliceSpliceComponent searchCountry empty array" duration="1"/>
-    <testCase name="SliceSpliceComponent selectedCountry, if the search term is more than two characters and test subscribe" duration="1"/>
-  </file>
-  <file path="src/app/components/unsub/unsub.component.spec.ts">
-    <testCase name="UnsubComponent call ngOnInit,add sub and ngOnDestroy" duration="1"/>
-  </file>
-  <file path="src/app/components/switch-map/switch-map.component.spec.ts">
-    <testCase name="UserListComponent should get users and posts" duration="4"/>
-  </file>
-  <file path="src/app/services/get-classes/get-classes.service.spec.ts">
-    <testCase name="QuestsService should call handleError" duration="2"/>
-    <testCase name="QuestsService should call getQuests" duration="1"/>
-    <testCase name="QuestsService should getQuestListByClass have been called" duration="1"/>
-    <testCase name="QuestsService should call addQuestInProgress" duration="1"/>
-  </file>
-  <file path="src/app/components/timeline-steps/timeline-steps.component.spec.ts">
-    <testCase name="TimelineStepsComponent should create" duration="2"/>
-  </file>
-  <file path="src/app/components/sort-find/sort-find.component.spec.ts">
-    <testCase name="SortFindComponent selectedCountry, if the search term is more than two characters and test subscribe" duration="3"/>
-    <testCase name="SortFindComponent searchCountry empty array" duration="1"/>
+    <testCase name="SnackbarComponent should set classList correctly when calling setBottomRight" duration="2"/>
+    <testCase name="SnackbarComponent should set classList correctly when calling setBottom" duration="3"/>
+    <testCase name="SnackbarComponent should add class and set setCloseAnim correctly when calling setClass" duration="2"/>
+    <testCase name="SnackbarComponent should handle the &quot;Escape&quot; keydown event correctly" duration="4"/>
+    <testCase name="SnackbarComponent should set noCloseOnEsc correctly" duration="3"/>
+    <testCase name="SnackbarComponent should set classList correctly when calling setTop" duration="2"/>
+    <testCase name="SnackbarComponent should call setClose after the specified timer duration" duration="3"/>
   </file>
   <file path="src/app/services/post/post.service.spec.ts">
-    <testCase name="PostService should add a post" duration="1"/>
+    <testCase name="PostService should test insert Post" duration="3"/>
+    <testCase name="PostService should test getPost" duration="1"/>
+  </file>
+  <file path="src/app/components/feed/feed.component.spec.ts">
+    <testCase name="FeedComponent should test getPosts()" duration="1"/>
+  </file>
+  <file path="src/app/components/join-concat/join-concat.component.spec.ts">
+    <testCase name="JoinConcatComponent call joinNames" duration="1"/>
+    <testCase name="JoinConcatComponent call concatNames" duration="1"/>
+  </file>
+  <file path="src/app/components/legends/details-legends.component.spec.ts">
+    <testCase name="DetailsLegendsComponent should not emit isClosed event when clicked inside the component" duration="4"/>
+    <testCase name="DetailsLegendsComponent should not emit isClosed event when a key other than Escape is pressed" duration="2"/>
+    <testCase name="DetailsLegendsComponent should emit isClosed event when clicked outside the component" duration="2"/>
+    <testCase name="DetailsLegendsComponent should emit isClosed event when Escape key is pressed" duration="1"/>
   </file>
 </testExecutions>
